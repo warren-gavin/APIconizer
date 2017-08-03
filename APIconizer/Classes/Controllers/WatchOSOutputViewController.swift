@@ -8,8 +8,12 @@
 
 import Cocoa
 
-class WatchOSOutputViewController: GeneratedImageViewController {
+class WatchOSOutputViewController: AppStoreArtworkViewController {
     override var iconSet: AppIconSet {
+        if artworkIsXcode9 {
+            return [.watch, .watchAppStore]
+        }
+
         return .watch
     }
 }

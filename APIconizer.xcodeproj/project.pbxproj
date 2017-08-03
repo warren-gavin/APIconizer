@@ -13,6 +13,7 @@
 		B05095A31F3348AC006D367A /* APIconizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05095A21F3348AC006D367A /* APIconizerTests.swift */; };
 		B05095AE1F3348AC006D367A /* APIconizerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05095AD1F3348AC006D367A /* APIconizerUITests.swift */; };
 		B05095F31F334A56006D367A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B05095F51F334A56006D367A /* Main.storyboard */; };
+		B06AC25F1F33947000D0CA66 /* AppStoreArtworkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06AC25D1F33947000D0CA66 /* AppStoreArtworkViewController.swift */; };
 		B0A92FB41F334CEB00CE83CD /* GeneratedImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A92FB21F334CBB00CE83CD /* GeneratedImageViewController.swift */; };
 		B0A92FB51F334CEB00CE83CD /* iOSOutputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A92FB31F334CBB00CE83CD /* iOSOutputViewController.swift */; };
 		B0A92FB61F334CEB00CE83CD /* MacOSOutputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A92FB01F334CBB00CE83CD /* MacOSOutputViewController.swift */; };
@@ -70,6 +71,7 @@
 		B05095AD1F3348AC006D367A /* APIconizerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIconizerUITests.swift; sourceTree = "<group>"; };
 		B05095AF1F3348AC006D367A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B05095F41F334A56006D367A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B06AC25D1F33947000D0CA66 /* AppStoreArtworkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreArtworkViewController.swift; sourceTree = "<group>"; };
 		B0A92FA01F334C8C00CE83CD /* AppIconSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconSet.swift; sourceTree = "<group>"; };
 		B0A92FA11F334C8C00CE83CD /* Resolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resolution.swift; sourceTree = "<group>"; };
 		B0A92FA21F334C8C00CE83CD /* Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				B0A92FB01F334CBB00CE83CD /* MacOSOutputViewController.swift */,
 				B0A92FAF1F334CBB00CE83CD /* MainViewController.swift */,
 				B0A92FB11F334CBB00CE83CD /* WatchOSOutputViewController.swift */,
+				B06AC25D1F33947000D0CA66 /* AppStoreArtworkViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0A92FBF1F334CEE00CE83CD /* Platform+NSStoryboard.swift in Sources */,
+				B06AC25F1F33947000D0CA66 /* AppStoreArtworkViewController.swift in Sources */,
 				B0A92FBB1F334CEE00CE83CD /* Dictionary+JSON.swift in Sources */,
 				B0A92FB41F334CEB00CE83CD /* GeneratedImageViewController.swift in Sources */,
 				B0A92FC61F334CF100CE83CD /* Resolution.swift in Sources */,

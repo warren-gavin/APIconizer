@@ -8,36 +8,55 @@
 
 import Cocoa
 
-class iOSOutputViewController: GeneratedImageViewController {
-    @objc var generateiPhoneIcons: Bool = true
-    @objc var generateiPadIcons:   Bool = true
-    @objc var generateOldIcons:    Bool = false
-
-    @objc var generateArtwork: Bool = false
-    @objc var artworkIsXcode9: Bool = false
+class iOSOutputViewController: AppStoreArtworkViewController {
+    @objc var generateiPhoneIcons: Bool = true {
+        didSet {
+            resetViewModel()
+        }
+    }
+    
+    @objc var generateiPadIcons: Bool = true {
+        didSet {
+            resetViewModel()
+        }
+    }
+    
+    @objc var generateOldIcons: Bool = false {
+        didSet {
+            resetViewModel()
+        }
+    }
 
     override var iconSet: AppIconSet {
-        switch (generateiPhoneIcons, generateiPadIcons, generateOldIcons) {
-        case (true, true, true):
-            return [.iPhone, .iPhoneOld, .iPad, .iPadOld]
-            
-        case (true, true, false):
-            return [.iPhone, .iPad]
-            
-        case (true, false, true):
-            return [.iPhone, .iPhoneOld]
-            
-        case (true, false, false):
-            return .iPhone
-            
-        case (false, true, true):
-            return [.iPad, .iPadOld]
-            
-        case (false, true, false):
-            return .iPad
-            
-        case (false, false, _):
-            return []
+        var iOSIcons: AppIconSet = {
+            switch (generateiPhoneIcons, generateiPadIcons, generateOldIcons) {
+            case (true, true, true):
+                return [.iPhone, .iPhoneOld, .iPad, .iPadOld]
+                
+            case (true, true, false):
+                return [.iPhone, .iPad]
+                
+            case (true, false, true):
+                return [.iPhone, .iPhoneOld]
+                
+            case (true, false, false):
+                return .iPhone
+                
+            case (false, true, true):
+                return [.iPad, .iPadOld]
+                
+            case (false, true, false):
+                return .iPad
+                
+            case (false, false, _):
+                return []
+            }
+        }()
+        
+        if artworkIsXcode9 {
+            iOSIcons.insert(.iOSAppStore)
         }
+        
+        return iOSIcons
     }
 }

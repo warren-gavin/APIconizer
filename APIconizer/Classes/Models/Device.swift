@@ -8,7 +8,13 @@
 
 import Foundation
 
+enum MarketingType: String {
+    case ios   = "ios-marketing"
+    case watch = "watch-marketing"
+}
+
 enum Device {
+    case appStore(MarketingType)
     case iphone
     case ipad
     case mac
@@ -18,6 +24,9 @@ enum Device {
 extension Device {
     var idiom: String {
         switch self {
+        case .appStore(let market):
+            return market.rawValue
+            
         case .iphone:
             return "iphone"
             
@@ -54,6 +63,7 @@ enum WatchRole: String {
     case companionSettings  = "companionSettings"
     case appLauncher        = "appLauncher"
     case quickLook          = "quickLook"
+    case longLook           = "longLook"
 }
 
 enum WatchSubtype: String {

@@ -58,9 +58,7 @@ class GeneratedImageViewController: NSViewController, GeneratedImageViewControll
             }
         }
     }
-}
 
-private extension GeneratedImageViewController {
     func resetViewModel() {
         guard let pdf = pdf, let url = pdfURL, let dataSource = dataSource else {
             return
@@ -72,16 +70,18 @@ private extension GeneratedImageViewController {
         
         saveButton.isEnabled = true
     }
-    
+}
+
+extension GeneratedImageViewController {
     func writeAppIconSet(to url: URL) {
-        DispatchQueue.global(qos: .background).async { [unowned self] in
-            FileManager.createDirectory(at: url) { tmpURL in
+        DispatchQueue.global(qos: .background).async {
+            FileManager.createDirectory(at: url) { [unowned self] tmpURL in
                 try self.generatedImageViewModels.forEach {
                     try $0.image.tiffRepresentation?.write(to: tmpURL.appendingPathComponent($0.info.filename))
                 }
                 
                 let contents = self.generatedImageViewModels.generateContentJSON()
-                try contents.json?.write(to: tmpURL.appendingPathComponent("contents.json"))
+                try contents.json?.write(to: tmpURL.appendingPathComponent(AppIconSet.contentsFilename))
             }
         }
     }
