@@ -18,7 +18,7 @@ extension FileManager {
             
             try writeOperation(tempURL)
 
-            try fileManager.removeItem(at: url)
+            try? fileManager.removeItem(at: url)
             try fileManager.moveItem(at: tempURL, to: url)
             
             return true
