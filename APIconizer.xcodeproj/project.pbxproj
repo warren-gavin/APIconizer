@@ -32,6 +32,8 @@
 		B0A92FC51F334CF100CE83CD /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A92FA21F334C8C00CE83CD /* Platform.swift */; };
 		B0A92FC61F334CF100CE83CD /* Resolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A92FA11F334C8C00CE83CD /* Resolution.swift */; };
 		B0A92FC71F334CF500CE83CD /* GeneratedImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A92FA61F334C9F00CE83CD /* GeneratedImageViewModel.swift */; };
+		B0A92FC91F33546000CE83CD /* BundleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A92FC81F33546000CE83CD /* BundleTests.swift */; };
+		B0A92FCB1F33551F00CE83CD /* DeviceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A92FCA1F33551F00CE83CD /* DeviceTests.swift */; };
 		B0AE3E281F334AE70016E2B4 /* GeneratedImageInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AE3E261F334AE70016E2B4 /* GeneratedImageInfoTests.swift */; };
 		B0AE3E291F334AE70016E2B4 /* IconTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AE3E271F334AE70016E2B4 /* IconTests.swift */; };
 /* End PBXBuildFile section */
@@ -86,6 +88,8 @@
 		B0A92FB11F334CBB00CE83CD /* WatchOSOutputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchOSOutputViewController.swift; sourceTree = "<group>"; };
 		B0A92FB21F334CBB00CE83CD /* GeneratedImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedImageViewController.swift; sourceTree = "<group>"; };
 		B0A92FB31F334CBB00CE83CD /* iOSOutputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSOutputViewController.swift; sourceTree = "<group>"; };
+		B0A92FC81F33546000CE83CD /* BundleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleTests.swift; sourceTree = "<group>"; };
+		B0A92FCA1F33551F00CE83CD /* DeviceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTests.swift; sourceTree = "<group>"; };
 		B0AE3E261F334AE70016E2B4 /* GeneratedImageInfoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GeneratedImageInfoTests.swift; path = ../../../../.Trash/APIconizer.bak/APIconizerTests/GeneratedImageInfoTests.swift; sourceTree = "<group>"; };
 		B0AE3E271F334AE70016E2B4 /* IconTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IconTests.swift; path = ../../../../.Trash/APIconizer.bak/APIconizerTests/IconTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -150,10 +154,12 @@
 		B05095A11F3348AC006D367A /* APIconizerTests */ = {
 			isa = PBXGroup;
 			children = (
+				B05095A21F3348AC006D367A /* APIconizerTests.swift */,
+				B0A92FC81F33546000CE83CD /* BundleTests.swift */,
 				B0AE3E261F334AE70016E2B4 /* GeneratedImageInfoTests.swift */,
 				B0AE3E271F334AE70016E2B4 /* IconTests.swift */,
-				B05095A21F3348AC006D367A /* APIconizerTests.swift */,
 				B05095A41F3348AC006D367A /* Info.plist */,
+				B0A92FCA1F33551F00CE83CD /* DeviceTests.swift */,
 			);
 			path = APIconizerTests;
 			sourceTree = "<group>";
@@ -394,6 +400,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B05095A31F3348AC006D367A /* APIconizerTests.swift in Sources */,
+				B0A92FCB1F33551F00CE83CD /* DeviceTests.swift in Sources */,
+				B0A92FC91F33546000CE83CD /* BundleTests.swift in Sources */,
 				B0AE3E291F334AE70016E2B4 /* IconTests.swift in Sources */,
 				B0AE3E281F334AE70016E2B4 /* GeneratedImageInfoTests.swift in Sources */,
 			);
