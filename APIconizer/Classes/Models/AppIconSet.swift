@@ -94,28 +94,28 @@ private extension Array where Element == Icon {
     
     // MARK: Modern iOS icons
     static let iPhoneIcons = [
-        Icon(type: .iphone, pointSize: 20, resolutions: [.retina,    .retinaHD]),
-        Icon(type: .iphone, pointSize: 29, resolutions: [.nonRetina, .retina, .retinaHD]),
-        Icon(type: .iphone, pointSize: 40, resolutions: [.retina,    .retinaHD]),
-        Icon(type: .iphone, pointSize: 60, resolutions: [.retina,    .retinaHD])
+        Icon(type: .iphone([.notifications]),        pointSize: 20, resolutions: [.retina,    .retinaHD]),
+        Icon(type: .iphone([.spotlight, .settings]), pointSize: 29, resolutions: [.nonRetina, .retina, .retinaHD]),
+        Icon(type: .iphone([.spotlight]),            pointSize: 40, resolutions: [.retina,    .retinaHD]),
+        Icon(type: .iphone([.app]),                  pointSize: 60, resolutions: [.retina,    .retinaHD])
     ]
     
     static let iPadIcons = [
-        Icon(type: .ipad, pointSize:   20, resolutions: [.nonRetina, .retina]),
-        Icon(type: .ipad, pointSize:   29, resolutions: [.nonRetina, .retina]),
-        Icon(type: .ipad, pointSize:   40, resolutions: [.nonRetina, .retina]),
-        Icon(type: .ipad, pointSize:   76, resolutions: [.nonRetina, .retina]),
-        Icon(type: .ipad, pointSize: 83.5, resolutions: [.retina])
+        Icon(type: .ipad(.notifications), pointSize:   20, resolutions: [.nonRetina, .retina]),
+        Icon(type: .ipad(.settings),      pointSize:   29, resolutions: [.nonRetina, .retina]),
+        Icon(type: .ipad(.spotlight),     pointSize:   40, resolutions: [.nonRetina, .retina]),
+        Icon(type: .ipad(.app),           pointSize:   76, resolutions: [.nonRetina, .retina]),
+        Icon(type: .ipad(.app),           pointSize: 83.5, resolutions: [.retina])
     ]
     
     // MARK: iOS 5 & 6
     static let iPhoneOldIcons = [
-        Icon(type: .iphone, pointSize: 57, resolutions: [.nonRetina, .retina])
+        Icon(type: .iphone([.app]), pointSize: 57, resolutions: [.nonRetina, .retina])
     ]
     
     static let iPadOldIcons = [
-        Icon(type: .ipad, pointSize: 50, resolutions: [.nonRetina, .retina]),
-        Icon(type: .ipad, pointSize: 72, resolutions: [.nonRetina, .retina])
+        Icon(type: .ipad(.spotlight), pointSize: 50, resolutions: [.nonRetina, .retina]),
+        Icon(type: .ipad(.app),       pointSize: 72, resolutions: [.nonRetina, .retina])
     ]
     
     // MARK: macOS

@@ -13,6 +13,7 @@ struct GeneratedImageInfo {
     let device: Device
     let filename: String
     let scale: Int
+    let description: String
 }
 
 // MARK: - Contents.json

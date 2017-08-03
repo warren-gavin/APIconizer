@@ -20,7 +20,8 @@ extension Icon {
             GeneratedImageInfo(size: pointSize,
                                device: type,
                                filename: filename(withRoot: basename, atScale: $0.scale),
-                               scale: $0.scale)
+                               scale: $0.scale,
+                               description: type.description)
         }
     }
 }
