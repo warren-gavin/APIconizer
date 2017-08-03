@@ -13,7 +13,7 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         let platforms: [Platform] = [.iOS, .macOS, .watchOS]
         platforms.forEach {
             guard let viewController = NSStoryboard.main.instantiateController(withIdentifier: $0.sceneIdentifier) as? NSViewController else {

@@ -406,7 +406,7 @@
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
-                <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
+                <windowController id="B8D-0N-5wS" customClass="MainWindowController" customModule="APIconizer" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -496,7 +496,7 @@
                                 </customSpacing>
                             </stackView>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3z7-mm-54q">
-                                <rect key="frame" x="348" y="13" width="70" height="32"/>
+                                <rect key="frame" x="353" y="13" width="70" height="32"/>
                                 <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="HNL-ut-niz">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -512,7 +512,7 @@
                             <constraint firstItem="3z7-mm-54q" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="DTl-XU-ux9" secondAttribute="leading" constant="20" symbolic="YES" id="Zml-Ji-5gg"/>
                             <constraint firstItem="3z7-mm-54q" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Tpk-JH-lce" secondAttribute="trailing" id="lm8-rc-dat"/>
                             <constraint firstItem="Tpk-JH-lce" firstAttribute="leading" secondItem="DTl-XU-ux9" secondAttribute="leading" constant="20" id="sPQ-W7-tbp"/>
-                            <constraint firstAttribute="trailing" secondItem="3z7-mm-54q" secondAttribute="trailing" constant="25" id="woc-Jp-nJO"/>
+                            <constraint firstAttribute="trailing" secondItem="3z7-mm-54q" secondAttribute="trailing" constant="20" id="woc-Jp-nJO"/>
                         </constraints>
                     </view>
                     <connections>
@@ -562,7 +562,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2ix-jp-h0y">
-                                <rect key="frame" x="361" y="13" width="70" height="32"/>
+                                <rect key="frame" x="366" y="13" width="70" height="32"/>
                                 <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="mdi-GA-xzI">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -575,7 +575,7 @@
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="2ix-jp-h0y" secondAttribute="bottom" constant="20" id="KAs-oj-2ot"/>
                             <constraint firstItem="2ix-jp-h0y" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gYt-7P-jrg" secondAttribute="leading" constant="20" symbolic="YES" id="PWd-Ef-2MD"/>
-                            <constraint firstAttribute="trailing" secondItem="2ix-jp-h0y" secondAttribute="trailing" constant="25" id="ijG-4p-eHs"/>
+                            <constraint firstAttribute="trailing" secondItem="2ix-jp-h0y" secondAttribute="trailing" constant="20" id="ijG-4p-eHs"/>
                         </constraints>
                     </view>
                     <connections>
@@ -595,7 +595,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZyF-2p-7qZ">
-                                <rect key="frame" x="361" y="13" width="70" height="32"/>
+                                <rect key="frame" x="366" y="13" width="70" height="32"/>
                                 <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qBF-Fr-VpW">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -631,10 +631,11 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="ZyF-2p-7qZ" firstAttribute="top" secondItem="Pdc-wJ-CAi" secondAttribute="bottom" constant="12" id="7fV-4W-7Fn"/>
-                            <constraint firstAttribute="trailing" secondItem="ZyF-2p-7qZ" secondAttribute="trailing" constant="25" id="9Ph-cj-Qdy"/>
+                            <constraint firstAttribute="trailing" secondItem="ZyF-2p-7qZ" secondAttribute="trailing" constant="20" id="9Ph-cj-Qdy"/>
                             <constraint firstItem="ZyF-2p-7qZ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="DZh-kT-sZC" secondAttribute="leading" constant="20" symbolic="YES" id="Y5N-JA-72f"/>
                             <constraint firstAttribute="bottom" secondItem="ZyF-2p-7qZ" secondAttribute="bottom" constant="20" id="bzS-ln-c6h"/>
                             <constraint firstItem="Pdc-wJ-CAi" firstAttribute="leading" secondItem="DZh-kT-sZC" secondAttribute="leading" constant="20" id="qCy-Ss-v3y"/>
+                            <constraint firstItem="ZyF-2p-7qZ" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="lbT-Ie-J7H" secondAttribute="trailing" id="zIe-yL-4xd"/>
                         </constraints>
                     </view>
                     <connections>

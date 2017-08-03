@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B012D1731F33B293004F3A25 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B012D1721F33B293004F3A25 /* MainWindowController.swift */; };
 		B04A18F21F335F220032CB30 /* Float+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04A18F11F335F220032CB30 /* Float+String.swift */; };
 		B05095901F3348AB006D367A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050958F1F3348AB006D367A /* AppDelegate.swift */; };
 		B05095941F3348AB006D367A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B05095931F3348AB006D367A /* Assets.xcassets */; };
@@ -58,6 +59,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B012D1721F33B293004F3A25 /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 		B04A18F11F335F220032CB30 /* Float+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Float+String.swift"; sourceTree = "<group>"; };
 		B050958C1F3348AB006D367A /* APIconizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = APIconizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B050958F1F3348AB006D367A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				B0A92FB31F334CBB00CE83CD /* iOSOutputViewController.swift */,
 				B0A92FB01F334CBB00CE83CD /* MacOSOutputViewController.swift */,
 				B0A92FAF1F334CBB00CE83CD /* MainViewController.swift */,
+				B012D1721F33B293004F3A25 /* MainWindowController.swift */,
 				B0A92FB11F334CBB00CE83CD /* WatchOSOutputViewController.swift */,
 				B06AC25D1F33947000D0CA66 /* AppStoreArtworkViewController.swift */,
 			);
@@ -391,6 +394,7 @@
 				B0A92FB51F334CEB00CE83CD /* iOSOutputViewController.swift in Sources */,
 				B0A92FC71F334CF500CE83CD /* GeneratedImageViewModel.swift in Sources */,
 				B0A92FC01F334CEE00CE83CD /* URL+App.swift in Sources */,
+				B012D1731F33B293004F3A25 /* MainWindowController.swift in Sources */,
 				B0A92FB91F334CEE00CE83CD /* Array+JSON.swift in Sources */,
 				B0A92FC31F334CF100CE83CD /* GeneratedImageInfo.swift in Sources */,
 				B0A92FC41F334CF100CE83CD /* Icon.swift in Sources */,
