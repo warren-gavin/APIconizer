@@ -19,7 +19,7 @@ struct GeneratedImageInfo {
 extension GeneratedImageInfo {
     var contentInfo: [String: String] {
         let contentInfo: [String: String?] = [
-            .size:     "\(size.prettyPrint)x\(size.prettyPrint)",
+            .size:     "\(size.prettyPrint())x\(size.prettyPrint())",
             .idiom:    device.idiom,
             .filename: filename,
             .scale:    "\(scale)x",
@@ -28,12 +28,6 @@ extension GeneratedImageInfo {
         ]
         
         return contentInfo.filter { (_, value) in value != nil } as! [String: String]
-    }
-}
-
-private extension Float {
-    var prettyPrint: String {
-        return "\(Int(self))"
     }
 }
 

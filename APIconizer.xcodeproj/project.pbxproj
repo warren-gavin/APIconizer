@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B04A18F21F335F220032CB30 /* Float+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04A18F11F335F220032CB30 /* Float+String.swift */; };
 		B05095901F3348AB006D367A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050958F1F3348AB006D367A /* AppDelegate.swift */; };
 		B05095941F3348AB006D367A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B05095931F3348AB006D367A /* Assets.xcassets */; };
 		B05095A31F3348AC006D367A /* APIconizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05095A21F3348AC006D367A /* APIconizerTests.swift */; };
@@ -56,6 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B04A18F11F335F220032CB30 /* Float+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Float+String.swift"; sourceTree = "<group>"; };
 		B050958C1F3348AB006D367A /* APIconizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = APIconizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B050958F1F3348AB006D367A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B05095931F3348AB006D367A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				B0A92FAE1F334CAE00CE83CD /* Bundle+App.swift */,
 				B0A92FAC1F334CAE00CE83CD /* Dictionary+JSON.swift */,
 				B0A92FAA1F334CAE00CE83CD /* FileManager+App.swift */,
+				B04A18F11F335F220032CB30 /* Float+String.swift */,
 				B0A92FA91F334CAE00CE83CD /* NSPDFImageRep+NSImage.swift */,
 				B0A92FAD1F334CAE00CE83CD /* NSStoryboard+App.swift */,
 				B0A92FA71F334CAE00CE83CD /* Platform+NSStoryboard.swift */,
@@ -390,6 +393,7 @@
 				B0A92FB81F334CEB00CE83CD /* WatchOSOutputViewController.swift in Sources */,
 				B05095901F3348AB006D367A /* AppDelegate.swift in Sources */,
 				B0A92FB71F334CEB00CE83CD /* MainViewController.swift in Sources */,
+				B04A18F21F335F220032CB30 /* Float+String.swift in Sources */,
 				B0A92FBC1F334CEE00CE83CD /* FileManager+App.swift in Sources */,
 				B0A92FBE1F334CEE00CE83CD /* NSStoryboard+App.swift in Sources */,
 			);

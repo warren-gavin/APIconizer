@@ -27,7 +27,7 @@ extension Icon {
 
 private extension Icon {
     func filename(withRoot basename: String, atScale scale: Int) -> String {
-        return "\(basename)-\(Int(pointSize))@\(scale)x.png"
+        return "\(basename)-\(pointSize.prettyPrint(decimalSeparator: "-"))@\(scale)x.png"
     }
 }
 

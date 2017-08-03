@@ -54,14 +54,7 @@ class GeneratedImageViewController: NSViewController, GeneratedImageViewControll
         
         savePanel.begin { [unowned self] response in
             if response == .OK, let url = savePanel.url {
-                FileManager.createDirectory(at: url) { tmpURL in
-                    try self.generatedImageViewModels.forEach {
-                        try $0.image.tiffRepresentation?.write(to: tmpURL.appendingPathComponent($0.info.filename))
-                    }
-                    
-                    let contents = self.generatedImageViewModels.generateContentJSON()
-                    try contents.json?.write(to: tmpURL.appendingPathComponent("contents.json"))
-                }
+                self.writeAppIconSet(to: url)
             }
         }
     }
@@ -78,5 +71,18 @@ private extension GeneratedImageViewController {
                                                                       withPDF: pdf)
         
         saveButton.isEnabled = true
+    }
+    
+    func writeAppIconSet(to url: URL) {
+        DispatchQueue.global(qos: .background).async { [unowned self] in
+            FileManager.createDirectory(at: url) { tmpURL in
+                try self.generatedImageViewModels.forEach {
+                    try $0.image.tiffRepresentation?.write(to: tmpURL.appendingPathComponent($0.info.filename))
+                }
+                
+                let contents = self.generatedImageViewModels.generateContentJSON()
+                try contents.json?.write(to: tmpURL.appendingPathComponent("contents.json"))
+            }
+        }
     }
 }
