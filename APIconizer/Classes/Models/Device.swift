@@ -51,10 +51,10 @@ extension Device {
             return "App Store"
             
         case .iphone(let roles):
-            return roles.map({ $0.description }).joined(separator: ", ")
+            return "iPhone \(roles.map({ $0.description }).joined(separator: ", "))"
             
         case .ipad(let role):
-            return role.description
+            return "iPad \(role.description)"
             
         case .mac:
             return ""

@@ -13,7 +13,10 @@ protocol GeneratedImageViewControllerDataSource: class {
 }
 
 class GeneratedImageViewController: NSViewController, GeneratedImageViewControllerDataSource {
-    @IBOutlet weak var saveButton: NSButton!
+    @IBOutlet var saveButton: NSButton!
+    @IBOutlet var collectionView: NSCollectionView!
+    
+    private lazy var generatedImagesDisplay: GeneratedImageDisplayingObject = GeneratedImageDisplayingObject(collectionView: collectionView)
     
     private var pdf: NSPDFImageRep? {
         didSet {
@@ -67,6 +70,8 @@ class GeneratedImageViewController: NSViewController, GeneratedImageViewControll
         generatedImageViewModels = GeneratedImageViewModel.viewModels(for: dataSource.iconSet.icons,
                                                                       fileRoot: url.deletingPathExtension().lastPathComponent,
                                                                       withPDF: pdf)
+        
+        generatedImagesDisplay.setViewModel(with: generatedImageViewModels)
         
         saveButton.isEnabled = true
     }
