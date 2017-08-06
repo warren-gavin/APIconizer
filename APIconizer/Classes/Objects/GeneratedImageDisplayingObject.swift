@@ -10,7 +10,16 @@ import Cocoa
 
 struct GeneratedImageDisplayViewModel {
     let description: String
-    let images: [GeneratedImageViewModel]
+    let size: Float
+    let scales: [Int]
+}
+
+extension GeneratedImageInfo: Hashable, CustomStringConvertible {
+    static func ==(lhs: GeneratedImageInfo, rhs: GeneratedImageInfo) -> Bool {
+        return lhs.hashValue == rhs.hashValue
+    }
+    
+    var hashValue: Int { return description.hashValue + size.hashValue}
 }
 
 class GeneratedImageDisplayingObject: NSObject, NSCollectionViewDataSource {
@@ -27,21 +36,29 @@ class GeneratedImageDisplayingObject: NSObject, NSCollectionViewDataSource {
 
         collectionView.registerNib(GeneratedImageCollectionViewItem.self)
         collectionView.dataSource = self
+        
+//        if let flowLayout = collectionView.collectionViewLayout as? NSCollectionViewFlowLayout {
+//            flowLayout.estimatedItemSize = NSSize(width: 150, height: 100)
+//        }
     }
     
-    func setViewModel(with generatedImagesViewModel: [GeneratedImageViewModel]) {
-        viewModel = {
-            var sortedViewModels: [String: [GeneratedImageViewModel]] = [:]
-            
-            generatedImagesViewModel.forEach {
-                var dict: [GeneratedImageViewModel] = sortedViewModels[$0.info.description] ?? []
-                dict.append($0)
-                sortedViewModels[$0.info.description] = dict
+    func display(pdf: NSPDFImageRep, withGeneratedImagesInfo generatedImagesInfo: [GeneratedImageInfo]) {
+        let imageTypes = Set(generatedImagesInfo).sorted { (lhs, rhs) in
+            if lhs.description == rhs.description {
+                return lhs.size < rhs.size
             }
             
-            return sortedViewModels.map { (key, value) in GeneratedImageDisplayViewModel(description: key, images: value)}
-                                   .sorted(by: { (lhs, rhs) in lhs.description < rhs.description })
-        }()
+            return lhs.description < rhs.description
+        }
+        
+        viewModel = imageTypes.map { image in
+            let scales = generatedImagesInfo.filter { image.description == $0.description }
+                                            .map { $0.scale }
+            
+            return GeneratedImageDisplayViewModel(description: image.description,
+                                                  size: image.size,
+                                                  scales: scales)
+        }
     }
     
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -49,10 +66,10 @@ class GeneratedImageDisplayingObject: NSObject, NSCollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
-        let item = collectionView.makeItem(withIdentifier: GeneratedImageCollectionViewItem.userInterfaceIdentifier, for: indexPath) as! GeneratedImageCollectionViewItem
+        let item = collectionView.makeItem(withIdentifier: GeneratedImageCollectionViewItem.userInterfaceIdentifier,
+                                           for: indexPath) as! GeneratedImageCollectionViewItem
 
-        item.titleLabel.stringValue = viewModel[indexPath.item].description
-        item.titleLabel.sizeToFit()
+        item.set(withViewModel: viewModel[indexPath.item])
         
         return item
     }
