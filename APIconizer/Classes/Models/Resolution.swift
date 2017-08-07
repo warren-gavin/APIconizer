@@ -13,3 +13,9 @@ enum Resolution: Int {
     case retina    = 2
     case retinaHD  = 3
 }
+
+extension Resolution {
+    var scale: Int {
+        return rawValue
+    }
+}

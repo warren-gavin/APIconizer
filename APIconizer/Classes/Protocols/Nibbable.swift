@@ -13,6 +13,10 @@ protocol Nibbable: UserInterfaceItemIdentifiable {
 
 extension Nibbable {
     static var nib: NSNib? {
-        return NSNib(nibNamed: NSNib.Name(rawValue: identifier), bundle: nil)
+        return NSNib(nibNamed: nibName, bundle: nil)
+    }
+    
+    static var nibName: NSNib.Name {
+        return NSNib.Name(rawValue: identifier)
     }
 }

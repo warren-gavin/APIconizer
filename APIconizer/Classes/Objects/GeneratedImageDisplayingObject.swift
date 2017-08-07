@@ -9,9 +9,10 @@
 import Cocoa
 
 struct GeneratedImageDisplayViewModel {
+    let images: [Resolution: NSImage]
     let description: String
     let size: Float
-    let scales: [Int]
+    let resolutions: [Resolution]
 }
 
 extension GeneratedImageInfo: Hashable, CustomStringConvertible {
@@ -19,7 +20,9 @@ extension GeneratedImageInfo: Hashable, CustomStringConvertible {
         return lhs.hashValue == rhs.hashValue
     }
     
-    var hashValue: Int { return description.hashValue + size.hashValue}
+    var hashValue: Int {
+        return "\(description).\(size)".hashValue
+    }
 }
 
 class GeneratedImageDisplayingObject: NSObject, NSCollectionViewDataSource {
@@ -36,13 +39,24 @@ class GeneratedImageDisplayingObject: NSObject, NSCollectionViewDataSource {
 
         collectionView.registerNib(GeneratedImageCollectionViewItem.self)
         collectionView.dataSource = self
+    }
+    
+    private func imagesFor(_ pdf: NSPDFImageRep) -> [Resolution: NSImage] {
+        let viewItem = GeneratedImageCollectionViewItem(nibName: GeneratedImageCollectionViewItem.nibName,
+                                                        bundle: nil)
+        viewItem.loadView()
+
+        let resolutions = [Resolution.nonRetina, .retina, .retinaHD]
+        let images = resolutions.map {
+            pdf.image(forSize: viewItem.size(for: $0))
+        }
         
-//        if let flowLayout = collectionView.collectionViewLayout as? NSCollectionViewFlowLayout {
-//            flowLayout.estimatedItemSize = NSSize(width: 150, height: 100)
-//        }
+        return Dictionary(keys: resolutions, values: images)
     }
     
     func display(pdf: NSPDFImageRep, withGeneratedImagesInfo generatedImagesInfo: [GeneratedImageInfo]) {
+        let images = imagesFor(pdf)
+        
         let imageTypes = Set(generatedImagesInfo).sorted { (lhs, rhs) in
             if lhs.description == rhs.description {
                 return lhs.size < rhs.size
@@ -52,12 +66,13 @@ class GeneratedImageDisplayingObject: NSObject, NSCollectionViewDataSource {
         }
         
         viewModel = imageTypes.map { image in
-            let scales = generatedImagesInfo.filter { image.description == $0.description }
-                                            .map { $0.scale }
+            let resolutions = generatedImagesInfo.filter { image.description == $0.description }
+                                                 .map { $0.resolution }
             
-            return GeneratedImageDisplayViewModel(description: image.description,
+            return GeneratedImageDisplayViewModel(images: images,
+                                                  description: image.description,
                                                   size: image.size,
-                                                  scales: scales)
+                                                  resolutions: resolutions)
         }
     }
     

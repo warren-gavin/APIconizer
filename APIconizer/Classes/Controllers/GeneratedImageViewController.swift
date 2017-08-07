@@ -94,7 +94,7 @@ private extension GeneratedImageViewController {
 extension GeneratedImageViewModel {
     static func viewModels(for generatedImages: [GeneratedImageInfo], withPDF pdf: NSPDFImageRep) -> [GeneratedImageViewModel] {
         return generatedImages.map {
-            let side = CGFloat($0.size * Float($0.scale))
+            let side = CGFloat($0.size * Float($0.resolution.scale))
             return GeneratedImageViewModel(image: pdf.image(forSize: NSSize(width: side, height: side)),
                                            info: $0)
         }
