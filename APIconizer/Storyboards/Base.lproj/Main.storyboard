@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13178.6"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
         <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
     </dependencies>
@@ -565,16 +566,26 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <tabView translatesAutoresizingMaskIntoConstraints="NO" id="IiF-Bf-aRc">
-                                <rect key="frame" x="13" y="2" width="424" height="284"/>
+                                <rect key="frame" x="101" y="2" width="336" height="284"/>
                                 <font key="font" metaFont="system"/>
                                 <tabViewItems/>
                             </tabView>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K1o-ae-375">
+                                <rect key="frame" x="17" y="197" width="86" height="86"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="K1o-ae-375" secondAttribute="height" multiplier="1:1" id="0bt-LZ-R98"/>
+                                    <constraint firstAttribute="width" constant="80" id="hd4-tP-sy3"/>
+                                </constraints>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="O1o-WE-gC9"/>
+                            </imageView>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="IiF-Bf-aRc" secondAttribute="trailing" constant="20" id="6Ph-0C-CKk"/>
+                            <constraint firstItem="IiF-Bf-aRc" firstAttribute="leading" secondItem="K1o-ae-375" secondAttribute="trailing" constant="8" id="Ck5-Au-opp"/>
+                            <constraint firstItem="K1o-ae-375" firstAttribute="leading" secondItem="vJ4-7U-rky" secondAttribute="leading" constant="20" id="Dd6-uP-EZ6"/>
                             <constraint firstItem="IiF-Bf-aRc" firstAttribute="top" secondItem="vJ4-7U-rky" secondAttribute="top" constant="20" id="IdF-2i-TVJ"/>
+                            <constraint firstItem="K1o-ae-375" firstAttribute="top" secondItem="vJ4-7U-rky" secondAttribute="top" constant="20" id="Kzb-d0-Ofi"/>
                             <constraint firstAttribute="bottom" secondItem="IiF-Bf-aRc" secondAttribute="bottom" constant="12" id="kBP-S3-BDz"/>
-                            <constraint firstItem="IiF-Bf-aRc" firstAttribute="leading" secondItem="vJ4-7U-rky" secondAttribute="leading" constant="20" id="pry-5B-txl"/>
                         </constraints>
                     </view>
                     <connections>
@@ -613,7 +624,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="450" height="158"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="zMy-kJ-QzB">
-                                                <size key="itemSize" width="50" height="50"/>
+                                                <size key="itemSize" width="300" height="151"/>
                                             </collectionViewFlowLayout>
                                             <color key="primaryBackgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                                         </collectionView>
@@ -701,7 +712,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="450" height="158"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="TCY-qC-Lrf">
-                                                <size key="itemSize" width="50" height="50"/>
+                                                <size key="itemSize" width="300" height="151"/>
                                             </collectionViewFlowLayout>
                                             <color key="primaryBackgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                                         </collectionView>

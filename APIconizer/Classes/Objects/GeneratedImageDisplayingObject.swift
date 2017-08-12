@@ -9,13 +9,33 @@
 import Cocoa
 
 struct GeneratedImageDisplayViewModel {
-    let images: [Resolution: NSImage]
+    private let images: [Resolution: NSImage]
+    private let size: Float
+    private let resolutions: [Resolution]
+    
     let description: String
-    let size: Float
-    let resolutions: [Resolution]
+
+    func image(for resolution: Resolution) -> NSImage? {
+        guard resolutions.contains(resolution) else {
+            return nil
+        }
+        
+        return images[resolution]
+    }
+    
+    var sizeText: String {
+        return size.prettyPrint()
+    }
+    
+    init(images: [Resolution: NSImage], description: String, size: Float, resolutions: [Resolution]) {
+        self.images      = images
+        self.description = description
+        self.size        = size
+        self.resolutions = resolutions
+    }
 }
 
-extension GeneratedImageInfo: Hashable, CustomStringConvertible {
+extension GeneratedImageInfo: Hashable {
     static func ==(lhs: GeneratedImageInfo, rhs: GeneratedImageInfo) -> Bool {
         return lhs.hashValue == rhs.hashValue
     }

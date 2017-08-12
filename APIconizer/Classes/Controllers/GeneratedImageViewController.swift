@@ -16,7 +16,7 @@ class GeneratedImageViewController: NSViewController, GeneratedImageViewControll
     @IBOutlet var saveButton: NSButton!
     @IBOutlet var collectionView: NSCollectionView!
     
-    private lazy var generatedImagesDisplay: GeneratedImageDisplayingObject = GeneratedImageDisplayingObject(collectionView: collectionView)
+    private lazy var generatedImagesDisplay = GeneratedImageDisplayingObject(collectionView: collectionView)
     
     private var pdf: NSPDFImageRep? {
         didSet {

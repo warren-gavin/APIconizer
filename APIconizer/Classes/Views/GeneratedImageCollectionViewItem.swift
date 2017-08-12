@@ -27,19 +27,15 @@ class GeneratedImageCollectionViewItem: NSCollectionViewItem {
     }
     
     func set(withViewModel viewModel: GeneratedImageDisplayViewModel) {
-        viewModel.images.forEach { (resolution, image) in
-            imageViews[resolution]?.image = (viewModel.resolutions.contains(resolution) ? image : nil)
-        }
-        
         imageViews.forEach { (resolution, imageView) in
+            imageView.image = viewModel.image(for: resolution)
             imageView.roundCornersForIcons()
-            imageView.isHidden = !(viewModel.resolutions.contains(resolution))
         }
         
         titleLabel.stringValue = viewModel.description
         titleLabel.sizeToFit()
 
-        pointSizeLabel.stringValue = "\(viewModel.size)pt"
+        pointSizeLabel.stringValue = "\(viewModel.sizeText)pt"
         pointSizeLabel.sizeToFit()
     }
 }
