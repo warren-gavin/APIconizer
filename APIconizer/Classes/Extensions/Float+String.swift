@@ -2,7 +2,7 @@
 //  Float+String.swift
 //  APIconizer
 //
-//  Created by Apokrupto on 03/08/2017.
+//  Created by Warren Gavin on 03/08/2017.
 //  Copyright © 2017 Apokrupto. All rights reserved.
 //
 

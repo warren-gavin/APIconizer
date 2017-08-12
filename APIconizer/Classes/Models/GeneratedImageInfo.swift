@@ -12,7 +12,8 @@ struct GeneratedImageInfo {
     let size: Float
     let device: Device
     let filename: String
-    let scale: Int
+    let resolution: Resolution
+    let description: String
 }
 
 // MARK: - Contents.json
@@ -22,7 +23,7 @@ extension GeneratedImageInfo {
             .size:     "\(size.prettyPrint())x\(size.prettyPrint())",
             .idiom:    device.idiom,
             .filename: filename,
-            .scale:    "\(scale)x",
+            .scale:    "\(resolution.scale)x",
             .role:     device.role,
             .subtype:  device.subtype
         ]
