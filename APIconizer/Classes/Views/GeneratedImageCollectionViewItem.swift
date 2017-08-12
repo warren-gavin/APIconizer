@@ -42,6 +42,7 @@ class GeneratedImageCollectionViewItem: NSCollectionViewItem {
         
         titleLabel.stringValue = viewModel.description
         titleLabel.sizeToFit()
+        titleLabel.isHidden = viewModel.hideDescription
 
         pointSizeLabel.stringValue = "\(viewModel.sizeText)pt"
         pointSizeLabel.sizeToFit()

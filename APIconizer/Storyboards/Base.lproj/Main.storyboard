@@ -523,7 +523,7 @@
                                     </subviews>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                                 </clipView>
-                                <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="XcN-Zw-AqY">
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="XcN-Zw-AqY">
                                     <rect key="frame" x="0.0" y="209" width="413" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
@@ -612,15 +612,16 @@
                                         <collectionView id="D3W-hA-bB6">
                                             <rect key="frame" x="0.0" y="0.0" width="426" height="158"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                            <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="zMy-kJ-QzB">
+                                            <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="8" minimumLineSpacing="8" id="zMy-kJ-QzB">
                                                 <size key="itemSize" width="300" height="151"/>
+                                                <edgeInsets key="sectionInset" left="20" right="20" top="20" bottom="20"/>
                                             </collectionViewFlowLayout>
                                             <color key="primaryBackgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                                         </collectionView>
                                     </subviews>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                                 </clipView>
-                                <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="RkB-Hh-jmD">
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="RkB-Hh-jmD">
                                     <rect key="frame" x="0.0" y="223" width="426" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
@@ -700,15 +701,16 @@
                                         <collectionView id="hLt-Q8-6AR">
                                             <rect key="frame" x="0.0" y="0.0" width="426" height="158"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                            <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="TCY-qC-Lrf">
+                                            <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="8" minimumLineSpacing="8" id="TCY-qC-Lrf">
                                                 <size key="itemSize" width="300" height="151"/>
+                                                <edgeInsets key="sectionInset" left="20" right="20" top="20" bottom="20"/>
                                             </collectionViewFlowLayout>
                                             <color key="primaryBackgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                                         </collectionView>
                                     </subviews>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                                 </clipView>
-                                <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="3uI-SI-TlY">
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="3uI-SI-TlY">
                                     <rect key="frame" x="0.0" y="209" width="426" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>

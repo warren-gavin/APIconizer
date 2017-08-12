@@ -27,6 +27,10 @@ struct GeneratedImageDisplayViewModel {
         return size.prettyPrint()
     }
     
+    var hideDescription: Bool {
+        return description.characters.isEmpty
+    }
+    
     init(images: [Resolution: NSImage], description: String, size: Float, resolutions: [Resolution]) {
         self.images      = images
         self.description = description
