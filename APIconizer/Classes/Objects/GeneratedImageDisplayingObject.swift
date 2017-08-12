@@ -45,7 +45,7 @@ extension GeneratedImageInfo: Hashable {
     }
 }
 
-class GeneratedImageDisplayingObject: NSObject, NSCollectionViewDataSource {
+class GeneratedImageDisplayingObject: NSObject {
     private let collectionView: NSCollectionView
     private var viewModel: [GeneratedImageDisplayViewModel] = [] {
         didSet {
@@ -62,8 +62,7 @@ class GeneratedImageDisplayingObject: NSObject, NSCollectionViewDataSource {
     }
     
     private func imagesFor(_ pdf: NSPDFImageRep) -> [Resolution: NSImage] {
-        let viewItem = GeneratedImageCollectionViewItem(nibName: GeneratedImageCollectionViewItem.nibName,
-                                                        bundle: nil)
+        let viewItem = GeneratedImageCollectionViewItem()
         viewItem.loadView()
 
         let resolutions = [Resolution.nonRetina, .retina, .retinaHD]
@@ -95,7 +94,9 @@ class GeneratedImageDisplayingObject: NSObject, NSCollectionViewDataSource {
                                                   resolutions: resolutions)
         }
     }
-    
+}
+
+extension GeneratedImageDisplayingObject: NSCollectionViewDataSource {
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.count
     }
@@ -109,4 +110,3 @@ class GeneratedImageDisplayingObject: NSObject, NSCollectionViewDataSource {
         return item
     }
 }
-

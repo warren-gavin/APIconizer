@@ -29,10 +29,10 @@ class ViewController: NSViewController {
     @IBAction func openPDFDocument(_ sender: Any) {
         let openPanel = NSOpenPanel()
         
-        openPanel.canChooseFiles = true
-        openPanel.canChooseDirectories = false
+        openPanel.canChooseFiles          = true
+        openPanel.canChooseDirectories    = false
         openPanel.allowsMultipleSelection = false
-        openPanel.allowedFileTypes = [.pdfExtension]
+        openPanel.allowedFileTypes        = [.pdfExtension]
         
         openPanel.begin { [unowned self] _ in
             self.tabView.tabViewItems.flatMap { $0.viewController as? GeneratedImageViewController }

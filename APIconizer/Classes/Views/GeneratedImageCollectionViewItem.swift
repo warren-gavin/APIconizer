@@ -18,9 +18,17 @@ class GeneratedImageCollectionViewItem: NSCollectionViewItem {
     
     private lazy var imageViews: [Resolution: NSImageView] = [
         .nonRetina: self.nonRetinaImageView,
-        .retina: self.retinaImageView,
-        .retinaHD: self.retinaHDImageView
+        .retina:    self.retinaImageView,
+        .retinaHD:  self.retinaHDImageView
     ]
+    
+    init() {
+        super.init(nibName: GeneratedImageCollectionViewItem.nibName, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     func size(for resolution: Resolution) -> NSSize {
         return imageViews[resolution]?.bounds.size ?? .zero
