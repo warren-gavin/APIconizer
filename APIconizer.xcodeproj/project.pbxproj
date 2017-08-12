@@ -42,11 +42,12 @@
 		B0A92FC41F334CF100CE83CD /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A92FA51F334C8C00CE83CD /* Icon.swift */; };
 		B0A92FC51F334CF100CE83CD /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A92FA21F334C8C00CE83CD /* Platform.swift */; };
 		B0A92FC61F334CF100CE83CD /* Resolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A92FA11F334C8C00CE83CD /* Resolution.swift */; };
-		B0A92FC71F334CF500CE83CD /* GeneratedImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A92FA61F334C9F00CE83CD /* GeneratedImageViewModel.swift */; };
 		B0A92FC91F33546000CE83CD /* BundleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A92FC81F33546000CE83CD /* BundleTests.swift */; };
 		B0A92FCB1F33551F00CE83CD /* DeviceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A92FCA1F33551F00CE83CD /* DeviceTests.swift */; };
 		B0AE3E281F334AE70016E2B4 /* GeneratedImageInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AE3E261F334AE70016E2B4 /* GeneratedImageInfoTests.swift */; };
 		B0AE3E291F334AE70016E2B4 /* IconTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AE3E271F334AE70016E2B4 /* IconTests.swift */; };
+		B0B3E2C21F3F40AE00F93DF7 /* GeneratedImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A92FA61F334C9F00CE83CD /* GeneratedImageViewModel.swift */; };
+		B0B3E2C41F3F40C300F93DF7 /* GeneratedImageDisplayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B3E2C31F3F40C300F93DF7 /* GeneratedImageDisplayViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +115,7 @@
 		B0A92FCA1F33551F00CE83CD /* DeviceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTests.swift; sourceTree = "<group>"; };
 		B0AE3E261F334AE70016E2B4 /* GeneratedImageInfoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GeneratedImageInfoTests.swift; path = ../../../../.Trash/APIconizer.bak/APIconizerTests/GeneratedImageInfoTests.swift; sourceTree = "<group>"; };
 		B0AE3E271F334AE70016E2B4 /* IconTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IconTests.swift; path = ../../../../.Trash/APIconizer.bak/APIconizerTests/IconTests.swift; sourceTree = "<group>"; };
+		B0B3E2C31F3F40C300F93DF7 /* GeneratedImageDisplayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedImageDisplayViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,6 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				B0A92FA61F334C9F00CE83CD /* GeneratedImageViewModel.swift */,
+				B0B3E2C31F3F40C300F93DF7 /* GeneratedImageDisplayViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -432,6 +435,7 @@
 				B0A92FBF1F334CEE00CE83CD /* Platform+NSStoryboard.swift in Sources */,
 				B06AC25F1F33947000D0CA66 /* AppStoreArtworkViewController.swift in Sources */,
 				B0A92FBB1F334CEE00CE83CD /* Dictionary+App.swift in Sources */,
+				B0B3E2C41F3F40C300F93DF7 /* GeneratedImageDisplayViewModel.swift in Sources */,
 				B0A92FB41F334CEB00CE83CD /* GeneratedImageViewController.swift in Sources */,
 				B0A92FC61F334CF100CE83CD /* Resolution.swift in Sources */,
 				B0A92FC51F334CF100CE83CD /* Platform.swift in Sources */,
@@ -444,7 +448,6 @@
 				B0A92FB61F334CEB00CE83CD /* MacOSOutputViewController.swift in Sources */,
 				B0A92FC21F334CF100CE83CD /* Device.swift in Sources */,
 				B0A92FB51F334CEB00CE83CD /* iOSOutputViewController.swift in Sources */,
-				B0A92FC71F334CF500CE83CD /* GeneratedImageViewModel.swift in Sources */,
 				B0A92FC01F334CEE00CE83CD /* URL+App.swift in Sources */,
 				B012D1731F33B293004F3A25 /* MainWindowController.swift in Sources */,
 				B0A92FB91F334CEE00CE83CD /* Array+JSON.swift in Sources */,
@@ -460,6 +463,7 @@
 				B0A92FBC1F334CEE00CE83CD /* FileManager+App.swift in Sources */,
 				B06255D21F351EF4005F35C9 /* Nibbable.swift in Sources */,
 				B0A92FBE1F334CEE00CE83CD /* NSStoryboard+App.swift in Sources */,
+				B0B3E2C21F3F40AE00F93DF7 /* GeneratedImageViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

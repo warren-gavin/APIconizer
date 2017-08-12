@@ -8,43 +8,6 @@
 
 import Cocoa
 
-struct GeneratedImageDisplayViewModel {
-    private let images: [Resolution: NSImage]
-    private let size: Float
-    private let resolutions: [Resolution]
-    
-    let description: String
-
-    func image(for resolution: Resolution) -> NSImage? {
-        guard resolutions.contains(resolution) else {
-            return nil
-        }
-        
-        return images[resolution]
-    }
-    
-    var sizeText: String {
-        return size.prettyPrint()
-    }
-    
-    init(images: [Resolution: NSImage], description: String, size: Float, resolutions: [Resolution]) {
-        self.images      = images
-        self.description = description
-        self.size        = size
-        self.resolutions = resolutions
-    }
-}
-
-extension GeneratedImageInfo: Hashable {
-    static func ==(lhs: GeneratedImageInfo, rhs: GeneratedImageInfo) -> Bool {
-        return lhs.hashValue == rhs.hashValue
-    }
-    
-    var hashValue: Int {
-        return "\(description).\(size)".hashValue
-    }
-}
-
 class GeneratedImageDisplayingObject: NSObject {
     private let collectionView: NSCollectionView
     private var viewModel: [GeneratedImageDisplayViewModel] = [] {
@@ -59,18 +22,6 @@ class GeneratedImageDisplayingObject: NSObject {
 
         collectionView.registerNib(GeneratedImageCollectionViewItem.self)
         collectionView.dataSource = self
-    }
-    
-    private func imagesFor(_ pdf: NSPDFImageRep) -> [Resolution: NSImage] {
-        let viewItem = GeneratedImageCollectionViewItem()
-        viewItem.loadView()
-
-        let resolutions = [Resolution.nonRetina, .retina, .retinaHD]
-        let images = resolutions.map {
-            pdf.image(forSize: viewItem.size(for: $0))
-        }
-        
-        return Dictionary(keys: resolutions, values: images)
     }
     
     func display(pdf: NSPDFImageRep, withGeneratedImagesInfo generatedImagesInfo: [GeneratedImageInfo]) {
@@ -96,6 +47,20 @@ class GeneratedImageDisplayingObject: NSObject {
     }
 }
 
+private extension GeneratedImageDisplayingObject {
+    func imagesFor(_ pdf: NSPDFImageRep) -> [Resolution: NSImage] {
+        let viewItem = GeneratedImageCollectionViewItem()
+        viewItem.loadView()
+        
+        let resolutions = [Resolution.nonRetina, .retina, .retinaHD]
+        let images = resolutions.map {
+            pdf.image(forSize: viewItem.size(for: $0))
+        }
+        
+        return Dictionary(keys: resolutions, values: images)
+    }
+}
+
 extension GeneratedImageDisplayingObject: NSCollectionViewDataSource {
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.count
@@ -108,5 +73,16 @@ extension GeneratedImageDisplayingObject: NSCollectionViewDataSource {
         item.set(withViewModel: viewModel[indexPath.item])
         
         return item
+    }
+}
+
+// Needed to create the set of generated image info
+extension GeneratedImageInfo: Hashable {
+    static func ==(lhs: GeneratedImageInfo, rhs: GeneratedImageInfo) -> Bool {
+        return lhs.hashValue == rhs.hashValue
+    }
+    
+    var hashValue: Int {
+        return "\(description).\(size)".hashValue
     }
 }
