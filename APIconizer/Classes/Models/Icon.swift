@@ -31,4 +31,3 @@ private extension Icon {
         return "\(basename)-\(pointSize.prettyPrint(decimalSeparator: "-"))@\(scale)x.png"
     }
 }
-

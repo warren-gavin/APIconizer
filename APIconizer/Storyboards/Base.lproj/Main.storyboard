@@ -556,10 +556,10 @@
             </objects>
             <point key="canvasLocation" x="1264.5" y="-110"/>
         </scene>
-        <!--View Controller-->
+        <!--Delegate-->
         <scene sceneID="yc1-WZ-eqm">
             <objects>
-                <viewController id="Ms6-hE-CDK" customClass="ViewController" customModule="APIconizer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Ms6-hE-CDK" customClass="MainViewController" customModule="APIconizer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="vJ4-7U-rky">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -569,12 +569,41 @@
                                 <font key="font" metaFont="system"/>
                                 <tabViewItems/>
                             </tabView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="gbK-LD-Z31" customClass="DragAndDropView" customModule="APIconizer" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                <subviews>
+                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="YX4-Hk-ysU">
+                                        <rect key="frame" x="38" y="137" width="374" height="27"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="280" id="4pb-oh-D5G"/>
+                                        </constraints>
+                                        <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" alignment="center" title="⌘-O or drop your PDF here" id="Mlv-T3-q5n">
+                                            <font key="font" size="22" name=".LucidaGrandeUI"/>
+                                            <color key="textColor" name="tertiaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="YX4-Hk-ysU" secondAttribute="trailing" constant="40" id="VvL-1d-5U4"/>
+                                    <constraint firstItem="YX4-Hk-ysU" firstAttribute="leading" secondItem="gbK-LD-Z31" secondAttribute="leading" constant="40" id="kUz-1p-MHr"/>
+                                    <constraint firstItem="YX4-Hk-ysU" firstAttribute="centerY" secondItem="gbK-LD-Z31" secondAttribute="centerY" id="rqW-SF-9Tg"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="Ms6-hE-CDK" id="pUB-SP-TSA"/>
+                                    <outlet property="hintLabel" destination="YX4-Hk-ysU" id="Hle-bA-Jj5"/>
+                                </connections>
+                            </customView>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="IiF-Bf-aRc" secondAttribute="trailing" constant="20" id="6Ph-0C-CKk"/>
                             <constraint firstItem="IiF-Bf-aRc" firstAttribute="top" secondItem="vJ4-7U-rky" secondAttribute="top" constant="20" id="IdF-2i-TVJ"/>
                             <constraint firstItem="IiF-Bf-aRc" firstAttribute="leading" secondItem="vJ4-7U-rky" secondAttribute="leading" constant="20" id="MVy-t9-FCa"/>
+                            <constraint firstAttribute="trailing" secondItem="gbK-LD-Z31" secondAttribute="trailing" id="XPY-zB-dvG"/>
+                            <constraint firstItem="gbK-LD-Z31" firstAttribute="leading" secondItem="vJ4-7U-rky" secondAttribute="leading" id="gK9-a3-TaV"/>
+                            <constraint firstItem="gbK-LD-Z31" firstAttribute="top" secondItem="vJ4-7U-rky" secondAttribute="top" id="gi4-XZ-G9e"/>
                             <constraint firstAttribute="bottom" secondItem="IiF-Bf-aRc" secondAttribute="bottom" constant="12" id="kBP-S3-BDz"/>
+                            <constraint firstAttribute="bottom" secondItem="gbK-LD-Z31" secondAttribute="bottom" id="vPS-fp-sZ1"/>
                         </constraints>
                     </view>
                     <connections>

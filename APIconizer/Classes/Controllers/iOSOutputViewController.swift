@@ -11,19 +11,19 @@ import Cocoa
 class iOSOutputViewController: AppStoreArtworkViewController {
     @objc var generateiPhoneIcons: Bool = true {
         didSet {
-            resetViewModel()
+            resetGeneratedImages()
         }
     }
     
     @objc var generateiPadIcons: Bool = true {
         didSet {
-            resetViewModel()
+            resetGeneratedImages()
         }
     }
     
     @objc var generateOldIcons: Bool = false {
         didSet {
-            resetViewModel()
+            resetGeneratedImages()
         }
     }
 

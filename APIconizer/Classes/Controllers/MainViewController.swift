@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class ViewController: NSViewController {
+class MainViewController: NSViewController {
     @IBOutlet weak var tabView: NSTabView!
     private let platforms: [Platform] = [.iOS, .macOS, .watchOS]
 
@@ -35,12 +35,14 @@ class ViewController: NSViewController {
         openPanel.allowedFileTypes        = [.pdfExtension]
         
         openPanel.begin { [unowned self] _ in
-            self.tabView.tabViewItems.flatMap { $0.viewController as? GeneratedImageViewController }
-                                     .forEach { $0.pdfURL = openPanel.url }
+            self.setPDF(at: openPanel.url)
         }
     }
 }
 
-private extension String {
-    static let pdfExtension = "pdf"
+extension MainViewController: DragAndDropViewDelegate {
+    func setPDF(at url: URL?) {
+        tabView.tabViewItems.flatMap { $0.viewController as? GeneratedImageViewController }
+                            .forEach { $0.viewModel = PDFViewModel(PDF(url: url)) }
+    }
 }

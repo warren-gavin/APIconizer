@@ -32,6 +32,7 @@ extension GeneratedImageInfo {
     }
 }
 
+// MARK: - Keys for Contents.json
 private extension String {
     static let size     = "size"
     static let idiom    = "idiom"
