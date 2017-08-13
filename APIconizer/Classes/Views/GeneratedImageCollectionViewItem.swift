@@ -12,14 +12,24 @@ class GeneratedImageCollectionViewItem: NSCollectionViewItem {
     @IBOutlet var titleLabel: NSTextField!
     @IBOutlet var pointSizeLabel: NSTextField!
     
-    @IBOutlet weak var nonRetinaImageView: NSImageView!
-    @IBOutlet weak var retinaImageView: NSImageView!
-    @IBOutlet weak var retinaHDImageView: NSImageView!
+    @IBOutlet var nonRetinaImageView: NSImageView!
+    @IBOutlet var retinaImageView: NSImageView!
+    @IBOutlet var retinaHDImageView: NSImageView!
     
+    @IBOutlet var nonRetinaStackview: NSStackView!
+    @IBOutlet var retinaStackView: NSStackView!
+    @IBOutlet var retinaHDStackView: NSStackView!
+
     private lazy var imageViews: [Resolution: NSImageView] = [
         .nonRetina: self.nonRetinaImageView,
         .retina:    self.retinaImageView,
         .retinaHD:  self.retinaHDImageView
+    ]
+    
+    private lazy var stackViews: [Resolution: NSStackView] = [
+        .nonRetina: self.nonRetinaStackview,
+        .retina:    self.retinaStackView,
+        .retinaHD:  self.retinaHDStackView
     ]
     
     init() {
@@ -38,11 +48,13 @@ class GeneratedImageCollectionViewItem: NSCollectionViewItem {
         imageViews.forEach { (resolution, imageView) in
             imageView.image = viewModel.image(for: resolution)
             imageView.roundCornersForIcons()
+            
+            stackViews[resolution]?.isHidden = viewModel.hide(for: resolution)
         }
         
+        titleLabel.isHidden    = viewModel.hideDescription
         titleLabel.stringValue = viewModel.description
         titleLabel.sizeToFit()
-        titleLabel.isHidden = viewModel.hideDescription
 
         pointSizeLabel.stringValue = "\(viewModel.sizeText)pt"
         pointSizeLabel.sizeToFit()
