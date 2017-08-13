@@ -48,6 +48,10 @@
 		B0AE3E291F334AE70016E2B4 /* IconTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AE3E271F334AE70016E2B4 /* IconTests.swift */; };
 		B0B3E2C21F3F40AE00F93DF7 /* GeneratedImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A92FA61F334C9F00CE83CD /* GeneratedImageViewModel.swift */; };
 		B0B3E2C41F3F40C300F93DF7 /* GeneratedImageDisplayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B3E2C31F3F40C300F93DF7 /* GeneratedImageDisplayViewModel.swift */; };
+		B0B3E2C61F404B9C00F93DF7 /* PDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B3E2C51F404B9C00F93DF7 /* PDF.swift */; };
+		B0B3E2C81F40514500F93DF7 /* PDFViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B3E2C71F40514500F93DF7 /* PDFViewModel.swift */; };
+		B0CA0D6C1F406DAD00FC3891 /* DragAndDropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CA0D6B1F406DAD00FC3891 /* DragAndDropView.swift */; };
+		B0CA0D6E1F407D8100FC3891 /* String+PDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CA0D6D1F407D8100FC3891 /* String+PDF.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +120,10 @@
 		B0AE3E261F334AE70016E2B4 /* GeneratedImageInfoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GeneratedImageInfoTests.swift; path = ../../../../.Trash/APIconizer.bak/APIconizerTests/GeneratedImageInfoTests.swift; sourceTree = "<group>"; };
 		B0AE3E271F334AE70016E2B4 /* IconTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IconTests.swift; path = ../../../../.Trash/APIconizer.bak/APIconizerTests/IconTests.swift; sourceTree = "<group>"; };
 		B0B3E2C31F3F40C300F93DF7 /* GeneratedImageDisplayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedImageDisplayViewModel.swift; sourceTree = "<group>"; };
+		B0B3E2C51F404B9C00F93DF7 /* PDF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDF.swift; sourceTree = "<group>"; };
+		B0B3E2C71F40514500F93DF7 /* PDFViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewModel.swift; sourceTree = "<group>"; };
+		B0CA0D6B1F406DAD00FC3891 /* DragAndDropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragAndDropView.swift; sourceTree = "<group>"; };
+		B0CA0D6D1F407D8100FC3891 /* String+PDF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+PDF.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +154,7 @@
 		B01800EB1F351135007ED11E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B0CA0D6B1F406DAD00FC3891 /* DragAndDropView.swift */,
 				B01800EC1F35119C007ED11E /* GeneratedImageCollectionViewItem.swift */,
 				B01800ED1F35119C007ED11E /* GeneratedImageCollectionViewItem.xib */,
 			);
@@ -224,13 +233,13 @@
 		B05095BC1F33495D006D367A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B06AC25D1F33947000D0CA66 /* AppStoreArtworkViewController.swift */,
 				B0A92FB21F334CBB00CE83CD /* GeneratedImageViewController.swift */,
 				B0A92FB31F334CBB00CE83CD /* iOSOutputViewController.swift */,
 				B0A92FB01F334CBB00CE83CD /* MacOSOutputViewController.swift */,
 				B0A92FAF1F334CBB00CE83CD /* MainViewController.swift */,
 				B012D1721F33B293004F3A25 /* MainWindowController.swift */,
 				B0A92FB11F334CBB00CE83CD /* WatchOSOutputViewController.swift */,
-				B06AC25D1F33947000D0CA66 /* AppStoreArtworkViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -245,9 +254,10 @@
 				B04A18F11F335F220032CB30 /* Float+String.swift */,
 				B0A92FA91F334CAE00CE83CD /* NSPDFImageRep+NSImage.swift */,
 				B0A92FAD1F334CAE00CE83CD /* NSStoryboard+App.swift */,
-				B0A92FA71F334CAE00CE83CD /* Platform+NSStoryboard.swift */,
-				B0A92FAB1F334CAE00CE83CD /* URL+App.swift */,
 				B02572161F38BA880033BF5F /* NSView+Drawing.swift */,
+				B0A92FA71F334CAE00CE83CD /* Platform+NSStoryboard.swift */,
+				B0CA0D6D1F407D8100FC3891 /* String+PDF.swift */,
+				B0A92FAB1F334CAE00CE83CD /* URL+App.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -257,6 +267,7 @@
 			children = (
 				B0A92FA61F334C9F00CE83CD /* GeneratedImageViewModel.swift */,
 				B0B3E2C31F3F40C300F93DF7 /* GeneratedImageDisplayViewModel.swift */,
+				B0B3E2C71F40514500F93DF7 /* PDFViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -268,6 +279,7 @@
 				B0A92FA41F334C8C00CE83CD /* Device.swift */,
 				B0A92FA31F334C8C00CE83CD /* GeneratedImageInfo.swift */,
 				B0A92FA51F334C8C00CE83CD /* Icon.swift */,
+				B0B3E2C51F404B9C00F93DF7 /* PDF.swift */,
 				B0A92FA21F334C8C00CE83CD /* Platform.swift */,
 				B0A92FA11F334C8C00CE83CD /* Resolution.swift */,
 			);
@@ -433,7 +445,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0A92FBF1F334CEE00CE83CD /* Platform+NSStoryboard.swift in Sources */,
+				B0CA0D6C1F406DAD00FC3891 /* DragAndDropView.swift in Sources */,
 				B06AC25F1F33947000D0CA66 /* AppStoreArtworkViewController.swift in Sources */,
+				B0CA0D6E1F407D8100FC3891 /* String+PDF.swift in Sources */,
 				B0A92FBB1F334CEE00CE83CD /* Dictionary+App.swift in Sources */,
 				B0B3E2C41F3F40C300F93DF7 /* GeneratedImageDisplayViewModel.swift in Sources */,
 				B0A92FB41F334CEB00CE83CD /* GeneratedImageViewController.swift in Sources */,
@@ -451,7 +465,9 @@
 				B0A92FC01F334CEE00CE83CD /* URL+App.swift in Sources */,
 				B012D1731F33B293004F3A25 /* MainWindowController.swift in Sources */,
 				B0A92FB91F334CEE00CE83CD /* Array+JSON.swift in Sources */,
+				B0B3E2C61F404B9C00F93DF7 /* PDF.swift in Sources */,
 				B0A92FC31F334CF100CE83CD /* GeneratedImageInfo.swift in Sources */,
+				B0B3E2C81F40514500F93DF7 /* PDFViewModel.swift in Sources */,
 				B06255D41F351F16005F35C9 /* UniquelyIdentifiable.swift in Sources */,
 				B01800EE1F35119C007ED11E /* GeneratedImageCollectionViewItem.swift in Sources */,
 				B0A92FC41F334CF100CE83CD /* Icon.swift in Sources */,

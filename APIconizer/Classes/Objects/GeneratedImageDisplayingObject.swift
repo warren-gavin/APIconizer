@@ -47,6 +47,7 @@ class GeneratedImageDisplayingObject: NSObject {
     }
 }
 
+// MARK: - Private
 private extension GeneratedImageDisplayingObject {
     func imagesFor(_ pdf: NSPDFImageRep) -> [Resolution: NSImage] {
         let viewItem = GeneratedImageCollectionViewItem()
@@ -61,6 +62,7 @@ private extension GeneratedImageDisplayingObject {
     }
 }
 
+// MARK: - NSCollectionViewDataSource
 extension GeneratedImageDisplayingObject: NSCollectionViewDataSource {
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.count
@@ -76,6 +78,7 @@ extension GeneratedImageDisplayingObject: NSCollectionViewDataSource {
     }
 }
 
+// MARK: - GeneratedImageInfo extensions
 // Needed to create the set of generated image info
 extension GeneratedImageInfo: Hashable {
     static func ==(lhs: GeneratedImageInfo, rhs: GeneratedImageInfo) -> Bool {

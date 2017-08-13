@@ -17,34 +17,25 @@ class GeneratedImageViewController: NSViewController, GeneratedImageViewControll
     @IBOutlet var collectionView: NSCollectionView!
     
     private lazy var generatedImagesDisplay = GeneratedImageDisplayingObject(collectionView: collectionView)
-    
-    private var pdf: NSPDFImageRep? {
-        didSet {
-            resetViewModel()
-        }
-    }
-    
     private(set) var generatedImageViewModels: [GeneratedImageViewModel] = []
 
     weak var dataSource: GeneratedImageViewControllerDataSource?
     
-    var pdfURL: URL? {
+    var viewModel: PDFViewModel? {
         didSet {
-            if let url = pdfURL, url.isFileURL, let data = try? Data(contentsOf: url) {
-                pdf = NSPDFImageRep(data: data)
-            }
+            resetGeneratedImages()
         }
     }
 
     var iconSet: AppIconSet {
-        return []
+        fatalError("iconSet must be implemented in a subclass")
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         dataSource = self
-        resetViewModel()
+        resetGeneratedImages()
     }
     
     @IBAction func saveAppIconSet(_ sender: NSButton) {
@@ -62,8 +53,8 @@ class GeneratedImageViewController: NSViewController, GeneratedImageViewControll
         }
     }
 
-    func resetViewModel() {
-        guard let pdf = pdf, let url = pdfURL?.deletingPathExtension().lastPathComponent, let dataSource = dataSource else {
+    func resetGeneratedImages() {
+        guard let pdf = viewModel?.imageRepresentation, let url = viewModel?.url, let dataSource = dataSource else {
             return
         }
         
@@ -76,6 +67,7 @@ class GeneratedImageViewController: NSViewController, GeneratedImageViewControll
     }
 }
 
+// MARK: - Private
 private extension GeneratedImageViewController {
     func writeAppIconSet(to url: URL) {
         DispatchQueue.global(qos: .background).async {
@@ -91,6 +83,7 @@ private extension GeneratedImageViewController {
     }
 }
 
+// MARK: - Generated images view models
 extension GeneratedImageViewModel {
     static func viewModels(for generatedImages: [GeneratedImageInfo], withPDF pdf: NSPDFImageRep) -> [GeneratedImageViewModel] {
         return generatedImages.map {

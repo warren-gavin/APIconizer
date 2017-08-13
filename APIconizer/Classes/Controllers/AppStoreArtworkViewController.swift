@@ -11,7 +11,7 @@ import Cocoa
 class AppStoreArtworkViewController: GeneratedImageViewController {
     @objc var artworkIsXcode9: Bool = false {
         didSet {
-            resetViewModel()
+            resetGeneratedImages()
         }
     }
 }

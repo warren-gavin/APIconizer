@@ -16,12 +16,7 @@ extension NSView {
     }
     
     func roundCornersForIcons() {
-        let radius: CGFloat = {
-            let size = min(bounds.size.width, bounds.size.height)
-            return size * .defaultIconRadiusFactor
-        }()
-        
-        roundCorners(radius: radius)
+        roundCorners(radius: min(bounds.size.width, bounds.size.height) * .defaultIconRadiusFactor)
     }
 }
 
