@@ -49,7 +49,7 @@ class GeneratedImageCollectionViewItem: NSCollectionViewItem {
             imageView.image = viewModel.image(for: resolution)
             imageView.roundCornersForIcons()
             
-            stackViews[resolution]?.isHidden = viewModel.hide(for: resolution)
+            stackViews[resolution]?.isHidden = (imageView.image == nil)
         }
         
         titleLabel.isHidden    = viewModel.hideDescription
