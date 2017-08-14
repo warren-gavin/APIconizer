@@ -49,10 +49,6 @@ class DragAndDropView: NSView {
     override func awakeFromNib() {
         registerForDraggedTypes([NSURLPboardType])
     }
-    
-    override func hitTest(_ point: NSPoint) -> NSView? {
-        return nil
-    }
 }
 
 private extension DragAndDropView {

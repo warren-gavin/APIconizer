@@ -53,7 +53,7 @@ private extension GeneratedImageDisplayingObject {
         let viewItem = GeneratedImageCollectionViewItem()
         viewItem.loadView()
         
-        let resolutions = [Resolution.nonRetina, .retina, .retinaHD]
+        let resolutions = Resolution.allCases
         let images = resolutions.map {
             pdf.image(forSize: viewItem.size(for: $0))
         }

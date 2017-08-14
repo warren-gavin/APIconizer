@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Resolution: Int {
+enum Resolution: Int, EnumCollection {
     case nonRetina = 1
     case retina    = 2
     case retinaHD  = 3
