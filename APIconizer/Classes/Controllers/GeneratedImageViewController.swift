@@ -16,7 +16,7 @@ class GeneratedImageViewController: NSViewController, GeneratedImageViewControll
     @IBOutlet var saveButton: NSButton!
     @IBOutlet var collectionView: NSCollectionView!
     
-    private lazy var generatedImagesDisplay = GeneratedImageDisplayingObject(collectionView: collectionView)
+    private lazy var generatedImagesDisplay = GeneratedImageDisplayingBehavior(collectionView: collectionView)
     private(set) var generatedImageViewModels: [GeneratedImageViewModel] = []
 
     weak var dataSource: GeneratedImageViewControllerDataSource?

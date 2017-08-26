@@ -1,5 +1,5 @@
 //
-//  GeneratedImageDisplayingObject.swift
+//  GeneratedImageDisplayingBehavior.swift
 //  APIconizer
 //
 //  Created by Warren Gavin on 04/08/2017.
@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class GeneratedImageDisplayingObject: NSObject {
+class GeneratedImageDisplayingBehavior: NSObject {
     private let collectionView: NSCollectionView
     private var viewModel: [GeneratedImageDisplayViewModel] = [] {
         didSet {
@@ -48,7 +48,7 @@ class GeneratedImageDisplayingObject: NSObject {
 }
 
 // MARK: - Private
-private extension GeneratedImageDisplayingObject {
+private extension GeneratedImageDisplayingBehavior {
     func imagesFor(_ pdf: NSPDFImageRep) -> [Resolution: NSImage] {
         let viewItem = GeneratedImageCollectionViewItem()
         viewItem.loadView()
@@ -63,7 +63,7 @@ private extension GeneratedImageDisplayingObject {
 }
 
 // MARK: - NSCollectionViewDataSource
-extension GeneratedImageDisplayingObject: NSCollectionViewDataSource {
+extension GeneratedImageDisplayingBehavior: NSCollectionViewDataSource {
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.count
     }
