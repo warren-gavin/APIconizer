@@ -12,8 +12,8 @@ import XCTest
 class DeviceTests: XCTestCase {
 
     func testIdioma() {
-        XCTAssertEqual(Device.iphone.idiom, "iphone")
-        XCTAssertEqual(Device.ipad.idiom,   "ipad")
+        XCTAssertEqual(Device.iphone([]).idiom, "iphone")
+        XCTAssertEqual(Device.ipad(.app).idiom,   "ipad")
         XCTAssertEqual(Device.mac.idiom,    "mac")
         
         XCTAssertEqual(Device.watch(.notificationCenter, nil).idiom, "watch")
@@ -23,8 +23,8 @@ class DeviceTests: XCTestCase {
     }
     
     func testRole() {
-        XCTAssertNil(Device.iphone.role)
-        XCTAssertNil(Device.ipad.role)
+        XCTAssertNil(Device.iphone([]).role)
+        XCTAssertNil(Device.ipad(.notifications).role)
         XCTAssertNil(Device.mac.role)
 
         XCTAssertEqual(Device.watch(.notificationCenter, nil).role, "notificationCenter")
@@ -34,8 +34,8 @@ class DeviceTests: XCTestCase {
     }
 
     func testSubtype() {
-        XCTAssertNil(Device.iphone.subtype)
-        XCTAssertNil(Device.ipad.subtype)
+        XCTAssertNil(Device.iphone([]).subtype)
+        XCTAssertNil(Device.ipad(.settings).subtype)
         XCTAssertNil(Device.mac.subtype)
         XCTAssertNil(Device.watch(.notificationCenter, nil).subtype)
 

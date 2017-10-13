@@ -9,35 +9,46 @@
 import Cocoa
 
 class iOSOutputViewController: GeneratedImageViewController {
-    @objc var generateiPhoneIcons: Bool = true
-    @objc var generateiPadIcons:   Bool = true
-    @objc var generateOldIcons:    Bool = false
-
-    @objc var generateArtwork: Bool = false
-    @objc var artworkIsXcode9: Bool = false
+    @objc var generateiPhoneIcons: Bool = true {
+        didSet {
+            resetGeneratedImages()
+        }
+    }
+    
+    @objc var generateiPadIcons: Bool = true {
+        didSet {
+            resetGeneratedImages()
+        }
+    }
+    
+    @objc var generateOldIcons: Bool = false {
+        didSet {
+            resetGeneratedImages()
+        }
+    }
 
     override var iconSet: AppIconSet {
         switch (generateiPhoneIcons, generateiPadIcons, generateOldIcons) {
         case (true, true, true):
-            return [.iPhone, .iPhoneOld, .iPad, .iPadOld]
+            return [.iPhone, .iPhoneOld, .iPad, .iPadOld, .iOSAppStore]
             
         case (true, true, false):
-            return [.iPhone, .iPad]
+            return [.iPhone, .iPad, .iOSAppStore]
             
         case (true, false, true):
-            return [.iPhone, .iPhoneOld]
+            return [.iPhone, .iPhoneOld, .iOSAppStore]
             
         case (true, false, false):
-            return .iPhone
+            return [.iPhone, .iOSAppStore]
             
         case (false, true, true):
-            return [.iPad, .iPadOld]
+            return [.iPad, .iPadOld, .iOSAppStore]
             
         case (false, true, false):
-            return .iPad
+            return [.iPad, .iOSAppStore]
             
         case (false, false, _):
-            return []
+            return [.iOSAppStore]
         }
     }
 }

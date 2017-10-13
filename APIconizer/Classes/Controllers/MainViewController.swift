@@ -8,13 +8,13 @@
 
 import Cocoa
 
-class ViewController: NSViewController {
+class MainViewController: NSViewController {
     @IBOutlet weak var tabView: NSTabView!
-    
+    private let platforms: [Platform] = [.iOS, .macOS, .watchOS]
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let platforms: [Platform] = [.iOS, .macOS, .watchOS]
+
         platforms.forEach {
             guard let viewController = NSStoryboard.main.instantiateController(withIdentifier: $0.sceneIdentifier) as? NSViewController else {
                 return
@@ -29,18 +29,20 @@ class ViewController: NSViewController {
     @IBAction func openPDFDocument(_ sender: Any) {
         let openPanel = NSOpenPanel()
         
-        openPanel.canChooseFiles = true
-        openPanel.canChooseDirectories = false
+        openPanel.canChooseFiles          = true
+        openPanel.canChooseDirectories    = false
         openPanel.allowsMultipleSelection = false
-        openPanel.allowedFileTypes = [.pdfExtension]
+        openPanel.allowedFileTypes        = [.pdfExtension]
         
         openPanel.begin { [unowned self] _ in
-            self.tabView.tabViewItems.flatMap { $0.viewController as? GeneratedImageViewController }
-                                     .forEach { $0.pdfURL = openPanel.url }
+            self.setPDF(at: openPanel.url)
         }
     }
 }
 
-private extension String {
-    static let pdfExtension = "pdf"
+extension MainViewController: DragAndDropViewDelegate {
+    func setPDF(at url: URL?) {
+        tabView.tabViewItems.flatMap { $0.viewController as? GeneratedImageViewController }
+                            .forEach { $0.viewModel = PDFViewModel(PDF(url: url)) }
+    }
 }

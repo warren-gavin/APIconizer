@@ -26,7 +26,9 @@ struct AppIconSet: OptionSet {
             contains(.iPad),
             contains(.iPadOld),
             contains(.mac),
-            contains(.watch)
+            contains(.watch),
+            contains(.iOSAppStore),
+            contains(.watchAppStore)
         ]
         
         let matchingIcons: [[Icon]] = [
@@ -35,7 +37,9 @@ struct AppIconSet: OptionSet {
             .iPadIcons,
             .iPadOldIcons,
             .macOSIcons,
-            .watchOSIcons
+            .watchOSIcons,
+            .iOSAppArtwork,
+            .watchAppArtwork
         ]
         
         let iconList: [[Icon]] = zip(matchingOptions, matchingIcons).map { (args) in
@@ -53,8 +57,9 @@ struct AppIconSet: OptionSet {
 }
 
 extension AppIconSet {
-    static let defaultFilename = "AppIcon"
-    static let fileExtension   = "appiconset"
+    static let defaultFilename  = "AppIcon"
+    static let fileExtension    = "appiconset"
+    static let contentsFilename = "Contents.json"
 }
 
 // MARK: - Available icon sets
@@ -70,34 +75,47 @@ extension AppIconSet {
     
     // MARK: watchOS
     static let watch = AppIconSet(rawValue: 32)
+    
+    // MARK: AppStore
+    static let iOSAppStore   = AppIconSet(rawValue:  64)
+    static let watchAppStore = AppIconSet(rawValue: 128)
 }
 
 // MARK: - All possible icons
 private extension Array where Element == Icon {
+    // MARK: App Store (Xcode 9 only)
+    static let iOSAppArtwork = [
+        Icon(type: .appStore(.ios), pointSize: 1024, resolutions: [.nonRetina])
+    ]
+    
+    static let watchAppArtwork = [
+        Icon(type: .appStore(.watch), pointSize: 1024, resolutions: [.nonRetina])
+    ]
+    
     // MARK: Modern iOS icons
     static let iPhoneIcons = [
-        Icon(type: .iphone, pointSize: 20, resolutions: [.retina,    .retinaHD]),
-        Icon(type: .iphone, pointSize: 29, resolutions: [.nonRetina, .retina, .retinaHD]),
-        Icon(type: .iphone, pointSize: 40, resolutions: [.retina,    .retinaHD]),
-        Icon(type: .iphone, pointSize: 60, resolutions: [.retina,    .retinaHD])
+        Icon(type: .iphone([.notifications]),        pointSize: 20, resolutions: [.retina,    .retinaHD]),
+        Icon(type: .iphone([.spotlight, .settings]), pointSize: 29, resolutions: [.nonRetina, .retina, .retinaHD]),
+        Icon(type: .iphone([.spotlight]),            pointSize: 40, resolutions: [.retina,    .retinaHD]),
+        Icon(type: .iphone([.app]),                  pointSize: 60, resolutions: [.retina,    .retinaHD])
     ]
     
     static let iPadIcons = [
-        Icon(type: .ipad, pointSize:   20, resolutions: [.nonRetina, .retina]),
-        Icon(type: .ipad, pointSize:   29, resolutions: [.nonRetina, .retina]),
-        Icon(type: .ipad, pointSize:   40, resolutions: [.nonRetina, .retina]),
-        Icon(type: .ipad, pointSize:   76, resolutions: [.nonRetina, .retina]),
-        Icon(type: .ipad, pointSize: 83.5, resolutions: [.retina])
+        Icon(type: .ipad(.notifications), pointSize:   20, resolutions: [.nonRetina, .retina]),
+        Icon(type: .ipad(.settings),      pointSize:   29, resolutions: [.nonRetina, .retina]),
+        Icon(type: .ipad(.spotlight),     pointSize:   40, resolutions: [.nonRetina, .retina]),
+        Icon(type: .ipad(.app),           pointSize:   76, resolutions: [.nonRetina, .retina]),
+        Icon(type: .ipad(.app),           pointSize: 83.5, resolutions: [.retina])
     ]
     
     // MARK: iOS 5 & 6
     static let iPhoneOldIcons = [
-        Icon(type: .iphone, pointSize: 57, resolutions: [.nonRetina, .retina])
+        Icon(type: .iphone([.app]), pointSize: 57, resolutions: [.nonRetina, .retina])
     ]
     
     static let iPadOldIcons = [
-        Icon(type: .ipad, pointSize: 50, resolutions: [.nonRetina, .retina]),
-        Icon(type: .ipad, pointSize: 72, resolutions: [.nonRetina, .retina])
+        Icon(type: .ipad(.spotlight), pointSize: 50, resolutions: [.nonRetina, .retina]),
+        Icon(type: .ipad(.app),       pointSize: 72, resolutions: [.nonRetina, .retina])
     ]
     
     // MARK: macOS
@@ -115,6 +133,7 @@ private extension Array where Element == Icon {
         Icon(type: .watch(.notificationCenter, .large), pointSize: 27.5, resolutions: [.retina]),
         Icon(type: .watch(.companionSettings,   nil),   pointSize:   29, resolutions: [.retina, .retinaHD]),
         Icon(type: .watch(.appLauncher,        .small), pointSize:   40, resolutions: [.retina]),
+        Icon(type: .watch(.longLook,           .large), pointSize:   44, resolutions: [.retina]),
         Icon(type: .watch(.quickLook,          .small), pointSize:   86, resolutions: [.retina]),
         Icon(type: .watch(.quickLook,          .large), pointSize:   98, resolutions: [.retina])
     ]

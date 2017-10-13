@@ -12,17 +12,18 @@ struct GeneratedImageInfo {
     let size: Float
     let device: Device
     let filename: String
-    let scale: Int
+    let resolution: Resolution
+    let description: String
 }
 
 // MARK: - Contents.json
 extension GeneratedImageInfo {
     var contentInfo: [String: String] {
         let contentInfo: [String: String?] = [
-            .size:     "\(size.prettyPrint)x\(size.prettyPrint)",
+            .size:     "\(size.prettyPrint())x\(size.prettyPrint())",
             .idiom:    device.idiom,
             .filename: filename,
-            .scale:    "\(scale)x",
+            .scale:    "\(resolution.scale)x",
             .role:     device.role,
             .subtype:  device.subtype
         ]
@@ -31,12 +32,7 @@ extension GeneratedImageInfo {
     }
 }
 
-private extension Float {
-    var prettyPrint: String {
-        return "\(Int(self))"
-    }
-}
-
+// MARK: - Keys for Contents.json
 private extension String {
     static let size     = "size"
     static let idiom    = "idiom"

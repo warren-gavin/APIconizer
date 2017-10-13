@@ -13,35 +13,29 @@ protocol GeneratedImageViewControllerDataSource: class {
 }
 
 class GeneratedImageViewController: NSViewController, GeneratedImageViewControllerDataSource {
-    @IBOutlet weak var saveButton: NSButton!
+    @IBOutlet var saveButton: NSButton!
+    @IBOutlet var collectionView: NSCollectionView!
     
-    private var pdf: NSPDFImageRep? {
-        didSet {
-            resetViewModel()
-        }
-    }
-    
+    private lazy var generatedImagesDisplay = GeneratedImageDisplayingBehavior(collectionView: collectionView)
     private(set) var generatedImageViewModels: [GeneratedImageViewModel] = []
 
     weak var dataSource: GeneratedImageViewControllerDataSource?
     
-    var pdfURL: URL? {
+    var viewModel: PDFViewModel? {
         didSet {
-            if let url = pdfURL, url.isFileURL, let data = try? Data(contentsOf: url) {
-                pdf = NSPDFImageRep(data: data)
-            }
+            resetGeneratedImages()
         }
     }
 
     var iconSet: AppIconSet {
-        return []
+        fatalError("iconSet must be implemented in a subclass")
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         dataSource = self
-        resetViewModel()
+        resetGeneratedImages()
     }
     
     @IBAction func saveAppIconSet(_ sender: NSButton) {
@@ -54,29 +48,61 @@ class GeneratedImageViewController: NSViewController, GeneratedImageViewControll
         
         savePanel.begin { [unowned self] response in
             if response == .OK, let url = savePanel.url {
-                FileManager.createDirectory(at: url) { tmpURL in
-                    try self.generatedImageViewModels.forEach {
-                        try $0.image.tiffRepresentation?.write(to: tmpURL.appendingPathComponent($0.info.filename))
+                self.writeAppIconSet(to: url)
+            }
+        }
+    }
+
+    func resetGeneratedImages() {
+        guard let pdf = viewModel?.imageRepresentation, let url = viewModel?.url, let dataSource = dataSource else {
+            return
+        }
+        
+        let generatedImagesInfo = dataSource.iconSet.icons.flatMap { $0.generatedImageInfo(withRootFilename: url) }
+
+        generatedImageViewModels = GeneratedImageViewModel.viewModels(for: generatedImagesInfo, withPDF: pdf)
+        generatedImagesDisplay.display(pdf: pdf, withGeneratedImagesInfo: generatedImagesInfo)
+        
+        saveButton.isEnabled = true
+    }
+}
+
+// MARK: - Private
+private extension GeneratedImageViewController {
+    func writeAppIconSet(to url: URL) {
+        DispatchQueue.global(qos: .background).async {
+            FileManager.createDirectory(at: url) { [unowned self] tmpURL in
+                try self.generatedImageViewModels.forEach {
+                    guard
+                        let imageData = $0.image.tiffRepresentation,
+                        let bitmap = NSBitmapImageRep(data: imageData),
+                        let png = bitmap.representation(using: .png, properties: [:])
+                    else {
+                        return
                     }
                     
-                    let contents = self.generatedImageViewModels.generateContentJSON()
-                    try contents.json?.write(to: tmpURL.appendingPathComponent("contents.json"))
+                    try png.write(to: tmpURL.appendingPathComponent($0.info.filename))
                 }
+                
+                let contents = self.generatedImageViewModels.generateContentJSON()
+                try contents.json?.write(to: tmpURL.appendingPathComponent(AppIconSet.contentsFilename))
             }
         }
     }
 }
 
-private extension GeneratedImageViewController {
-    func resetViewModel() {
-        guard let pdf = pdf, let url = pdfURL, let dataSource = dataSource else {
-            return
+// MARK: - Generated images view models
+extension GeneratedImageViewModel {
+    static func viewModels(for generatedImages: [GeneratedImageInfo], withPDF pdf: NSPDFImageRep) -> [GeneratedImageViewModel] {
+        let images: [GeneratedImageViewModel] = generatedImages.map {
+            let side = CGFloat($0.size * Float($0.resolution.scale))
+            return GeneratedImageViewModel(image: pdf.image(forSize: NSSize(width: side, height: side)),
+                                           info: $0)
         }
+
+        let i = images[0].info
+        print(i.size)
         
-        generatedImageViewModels = GeneratedImageViewModel.viewModels(for: dataSource.iconSet.icons,
-                                                                      fileRoot: url.deletingPathExtension().lastPathComponent,
-                                                                      withPDF: pdf)
-        
-        saveButton.isEnabled = true
+        return images
     }
 }

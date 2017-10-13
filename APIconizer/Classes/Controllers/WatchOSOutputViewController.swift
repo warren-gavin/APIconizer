@@ -10,6 +10,6 @@ import Cocoa
 
 class WatchOSOutputViewController: GeneratedImageViewController {
     override var iconSet: AppIconSet {
-        return .watch
+        return [.watch, .watchAppStore]
     }
 }

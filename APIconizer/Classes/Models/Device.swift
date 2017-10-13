@@ -8,9 +8,19 @@
 
 import Foundation
 
+enum MarketingType: String {
+    case ios   = "ios-marketing"
+    case watch = "watch-marketing"
+    
+    var idiom: String {
+        return rawValue
+    }
+}
+
 enum Device {
-    case iphone
-    case ipad
+    case appStore(MarketingType)
+    case iphone([iOSRole])
+    case ipad(iOSRole)
     case mac
     case watch(WatchRole, WatchSubtype?)
 }
@@ -18,10 +28,13 @@ enum Device {
 extension Device {
     var idiom: String {
         switch self {
-        case .iphone:
+        case .appStore(let market):
+            return market.idiom
+            
+        case .iphone(_):
             return "iphone"
             
-        case .ipad:
+        case .ipad(_):
             return "ipad"
             
         case .mac:
@@ -29,6 +42,25 @@ extension Device {
             
         case .watch(_):
             return "watch"
+        }
+    }
+    
+    var description: String {
+        switch self {
+        case .appStore(_):
+            return "App Store"
+            
+        case .iphone(let roles):
+            return "iPhone \(roles.map({ $0.description }).joined(separator: ", "))"
+            
+        case .ipad(let role):
+            return "iPad \(role.description)"
+            
+        case .mac:
+            return ""
+            
+        case .watch(let role, _):
+            return role.description
         }
     }
     
@@ -49,11 +81,42 @@ extension Device {
     }
 }
 
+enum iOSRole: String {
+    case notifications = "Notifications"
+    case spotlight     = "Spotlight"
+    case settings      = "Settings"
+    case app           = "App"
+    
+    var description: String {
+        return rawValue
+    }
+}
+
 enum WatchRole: String {
     case notificationCenter = "notificationCenter"
     case companionSettings  = "companionSettings"
     case appLauncher        = "appLauncher"
     case quickLook          = "quickLook"
+    case longLook           = "longLook"
+    
+    var description: String {
+        switch self {
+        case .notificationCenter:
+            return "Notification Center"
+            
+        case .companionSettings:
+            return "Companion Settings"
+            
+        case .appLauncher:
+            return "Home Screen (All)"
+            
+        case .quickLook:
+            return "Short Look"
+            
+        case .longLook:
+            return "Long Look"
+        }
+    }
 }
 
 enum WatchSubtype: String {
