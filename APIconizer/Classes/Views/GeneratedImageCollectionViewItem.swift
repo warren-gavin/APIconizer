@@ -47,8 +47,6 @@ class GeneratedImageCollectionViewItem: NSCollectionViewItem {
     func set(withViewModel viewModel: GeneratedImageDisplayViewModel) {
         imageViews.forEach { (resolution, imageView) in
             imageView.image = viewModel.image(for: resolution)
-            imageView.roundCornersForIcons()
-            
             stackViews[resolution]?.isHidden = (imageView.image == nil)
         }
         

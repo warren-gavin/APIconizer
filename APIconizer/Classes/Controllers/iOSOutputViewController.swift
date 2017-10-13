@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class iOSOutputViewController: AppStoreArtworkViewController {
+class iOSOutputViewController: GeneratedImageViewController {
     @objc var generateiPhoneIcons: Bool = true {
         didSet {
             resetGeneratedImages()
@@ -28,35 +28,27 @@ class iOSOutputViewController: AppStoreArtworkViewController {
     }
 
     override var iconSet: AppIconSet {
-        var iOSIcons: AppIconSet = {
-            switch (generateiPhoneIcons, generateiPadIcons, generateOldIcons) {
-            case (true, true, true):
-                return [.iPhone, .iPhoneOld, .iPad, .iPadOld]
-                
-            case (true, true, false):
-                return [.iPhone, .iPad]
-                
-            case (true, false, true):
-                return [.iPhone, .iPhoneOld]
-                
-            case (true, false, false):
-                return .iPhone
-                
-            case (false, true, true):
-                return [.iPad, .iPadOld]
-                
-            case (false, true, false):
-                return .iPad
-                
-            case (false, false, _):
-                return []
-            }
-        }()
-        
-        if artworkIsXcode9 {
-            iOSIcons.insert(.iOSAppStore)
+        switch (generateiPhoneIcons, generateiPadIcons, generateOldIcons) {
+        case (true, true, true):
+            return [.iPhone, .iPhoneOld, .iPad, .iPadOld, .iOSAppStore]
+            
+        case (true, true, false):
+            return [.iPhone, .iPad, .iOSAppStore]
+            
+        case (true, false, true):
+            return [.iPhone, .iPhoneOld, .iOSAppStore]
+            
+        case (true, false, false):
+            return [.iPhone, .iOSAppStore]
+            
+        case (false, true, true):
+            return [.iPad, .iPadOld, .iOSAppStore]
+            
+        case (false, true, false):
+            return [.iPad, .iOSAppStore]
+            
+        case (false, false, _):
+            return [.iOSAppStore]
         }
-        
-        return iOSIcons
     }
 }

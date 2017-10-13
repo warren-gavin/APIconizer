@@ -73,7 +73,15 @@ private extension GeneratedImageViewController {
         DispatchQueue.global(qos: .background).async {
             FileManager.createDirectory(at: url) { [unowned self] tmpURL in
                 try self.generatedImageViewModels.forEach {
-                    try $0.image.tiffRepresentation?.write(to: tmpURL.appendingPathComponent($0.info.filename))
+                    guard
+                        let imageData = $0.image.tiffRepresentation,
+                        let bitmap = NSBitmapImageRep(data: imageData),
+                        let png = bitmap.representation(using: .png, properties: [:])
+                    else {
+                        return
+                    }
+                    
+                    try png.write(to: tmpURL.appendingPathComponent($0.info.filename))
                 }
                 
                 let contents = self.generatedImageViewModels.generateContentJSON()
@@ -86,10 +94,15 @@ private extension GeneratedImageViewController {
 // MARK: - Generated images view models
 extension GeneratedImageViewModel {
     static func viewModels(for generatedImages: [GeneratedImageInfo], withPDF pdf: NSPDFImageRep) -> [GeneratedImageViewModel] {
-        return generatedImages.map {
+        let images: [GeneratedImageViewModel] = generatedImages.map {
             let side = CGFloat($0.size * Float($0.resolution.scale))
             return GeneratedImageViewModel(image: pdf.image(forSize: NSSize(width: side, height: side)),
                                            info: $0)
         }
+
+        let i = images[0].info
+        print(i.size)
+        
+        return images
     }
 }

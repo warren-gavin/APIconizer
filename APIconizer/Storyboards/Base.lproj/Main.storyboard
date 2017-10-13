@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13178.6" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13178.6"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13196"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
         <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
     </dependencies>
@@ -433,23 +433,10 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="12" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tpk-JH-lce">
-                                <rect key="frame" x="20" y="53" width="357" height="14"/>
+                                <rect key="frame" x="20" y="53" width="276" height="14"/>
                                 <subviews>
-                                    <button translatesAutoresizingMaskIntoConstraints="NO" id="Ae0-KA-sqS">
-                                        <rect key="frame" x="-2" y="-2" width="73" height="18"/>
-                                        <buttonCell key="cell" type="check" title="Xcode 9" bezelStyle="regularSquare" imagePosition="left" inset="2" id="ODj-3g-aBJ">
-                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                            <connections>
-                                                <binding destination="NAu-vy-ds1" name="value" keyPath="artworkIsXcode9" id="L1U-l1-bU8"/>
-                                            </connections>
-                                        </buttonCell>
-                                        <connections>
-                                            <binding destination="NAu-vy-ds1" name="value" keyPath="self.artworkIsXcode9" id="kjJ-qC-XLG"/>
-                                        </connections>
-                                    </button>
                                     <button translatesAutoresizingMaskIntoConstraints="NO" id="6Ny-ns-n8X">
-                                        <rect key="frame" x="79" y="-2" width="100" height="18"/>
+                                        <rect key="frame" x="-2" y="-2" width="100" height="18"/>
                                         <buttonCell key="cell" type="check" title="iPhone icons" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="ok9-Uf-ALZ">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -459,7 +446,7 @@
                                         </connections>
                                     </button>
                                     <button translatesAutoresizingMaskIntoConstraints="NO" id="caN-Bt-F5U">
-                                        <rect key="frame" x="187" y="-2" width="84" height="18"/>
+                                        <rect key="frame" x="106" y="-2" width="84" height="18"/>
                                         <buttonCell key="cell" type="check" title="iPad icons" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="U2K-Je-eZ1">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -472,7 +459,7 @@
                                         </connections>
                                     </button>
                                     <button translatesAutoresizingMaskIntoConstraints="NO" id="ynI-wa-n9g">
-                                        <rect key="frame" x="279" y="-2" width="80" height="18"/>
+                                        <rect key="frame" x="198" y="-2" width="80" height="18"/>
                                         <buttonCell key="cell" type="check" title="iOS 5 &amp; 6" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="3y8-3h-Z6Z">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -486,10 +473,8 @@
                                     <integer value="1000"/>
                                     <integer value="1000"/>
                                     <integer value="1000"/>
-                                    <integer value="1000"/>
                                 </visibilityPriorities>
                                 <customSpacing>
-                                    <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
@@ -697,34 +682,10 @@
                                     <action selector="saveAppIconSet:" target="3Xo-0t-eZb" id="dMA-Lf-4Xa"/>
                                 </connections>
                             </button>
-                            <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="12" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pdc-wJ-CAi">
-                                <rect key="frame" x="20" y="53" width="69" height="14"/>
-                                <subviews>
-                                    <button translatesAutoresizingMaskIntoConstraints="NO" id="lbT-Ie-J7H">
-                                        <rect key="frame" x="-2" y="-2" width="73" height="18"/>
-                                        <buttonCell key="cell" type="check" title="Xcode 9" bezelStyle="regularSquare" imagePosition="left" inset="2" id="H35-WI-wOB">
-                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                            <connections>
-                                                <binding destination="NAu-vy-ds1" name="value" keyPath="artworkIsXcode9" id="nko-pF-t3Y"/>
-                                            </connections>
-                                        </buttonCell>
-                                        <connections>
-                                            <binding destination="3Xo-0t-eZb" name="value" keyPath="self.artworkIsXcode9" id="Nkg-0S-koi"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <visibilityPriorities>
-                                    <integer value="1000"/>
-                                </visibilityPriorities>
-                                <customSpacing>
-                                    <real value="3.4028234663852886e+38"/>
-                                </customSpacing>
-                            </stackView>
                             <scrollView wantsLayer="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5CJ-q3-zMV">
-                                <rect key="frame" x="12" y="75" width="426" height="225"/>
+                                <rect key="frame" x="12" y="61" width="426" height="239"/>
                                 <clipView key="contentView" drawsBackground="NO" id="Nha-as-YRH">
-                                    <rect key="frame" x="0.0" y="0.0" width="426" height="225"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="426" height="239"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <collectionView id="hLt-Q8-6AR">
@@ -750,16 +711,13 @@
                             </scrollView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="ZyF-2p-7qZ" firstAttribute="top" secondItem="Pdc-wJ-CAi" secondAttribute="bottom" constant="12" id="7fV-4W-7Fn"/>
                             <constraint firstAttribute="trailing" secondItem="ZyF-2p-7qZ" secondAttribute="trailing" constant="20" id="9Ph-cj-Qdy"/>
                             <constraint firstItem="5CJ-q3-zMV" firstAttribute="leading" secondItem="DZh-kT-sZC" secondAttribute="leading" constant="12" id="Ekx-GF-bAe"/>
+                            <constraint firstItem="ZyF-2p-7qZ" firstAttribute="top" secondItem="5CJ-q3-zMV" secondAttribute="bottom" constant="20" id="IFo-nN-WvD"/>
                             <constraint firstItem="ZyF-2p-7qZ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="DZh-kT-sZC" secondAttribute="leading" constant="20" symbolic="YES" id="Y5N-JA-72f"/>
                             <constraint firstAttribute="trailing" secondItem="5CJ-q3-zMV" secondAttribute="trailing" constant="12" id="amG-2T-1wz"/>
                             <constraint firstAttribute="bottom" secondItem="ZyF-2p-7qZ" secondAttribute="bottom" constant="20" id="bzS-ln-c6h"/>
-                            <constraint firstItem="Pdc-wJ-CAi" firstAttribute="leading" secondItem="DZh-kT-sZC" secondAttribute="leading" constant="20" id="qCy-Ss-v3y"/>
-                            <constraint firstItem="Pdc-wJ-CAi" firstAttribute="top" secondItem="5CJ-q3-zMV" secondAttribute="bottom" constant="8" id="wa9-qu-2FT"/>
                             <constraint firstItem="5CJ-q3-zMV" firstAttribute="top" secondItem="DZh-kT-sZC" secondAttribute="top" id="ykx-f1-Sgk"/>
-                            <constraint firstItem="ZyF-2p-7qZ" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="lbT-Ie-J7H" secondAttribute="trailing" id="zIe-yL-4xd"/>
                         </constraints>
                     </view>
                     <connections>
