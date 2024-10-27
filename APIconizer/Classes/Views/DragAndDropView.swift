@@ -7,10 +7,9 @@
 //
 
 import Cocoa
+import UniformTypeIdentifiers
 
-#if swift(>=4.0)
-let NSURLPboardType = NSPasteboard.PasteboardType(kUTTypeURL as String)
-#endif
+let NSURLPboardType = NSPasteboard.PasteboardType(UTType.url.identifier)
 
 @objc protocol DragAndDropViewDelegate: class {
     func setPDF(at url: URL?)
@@ -28,7 +27,7 @@ class DragAndDropView: NSView {
     }
     
     override func prepareForDragOperation(_ sender: NSDraggingInfo) -> Bool {
-        return shouldAllowDrag(sender)
+        shouldAllowDrag(sender)
     }
     
     override func performDragOperation(_ draggingInfo: NSDraggingInfo) -> Bool {
@@ -53,6 +52,9 @@ class DragAndDropView: NSView {
 
 private extension DragAndDropView {
     func shouldAllowDrag(_ draggingInfo: NSDraggingInfo) -> Bool {
-        return draggingInfo.draggingPasteboard().canReadObject(forClasses: [NSURL.self], options: filteringOptions)
+        draggingInfo.draggingPasteboard().canReadObject(
+            forClasses: [NSURL.self],
+            options: filteringOptions
+        )
     }
 }

@@ -32,8 +32,8 @@ class MainViewController: NSViewController {
         openPanel.canChooseFiles          = true
         openPanel.canChooseDirectories    = false
         openPanel.allowsMultipleSelection = false
-        openPanel.allowedFileTypes        = [.pdfExtension]
-        
+        openPanel.allowedContentTypes     = [.pdf]
+
         openPanel.begin { [unowned self] _ in
             self.setPDF(at: openPanel.url)
         }
@@ -42,7 +42,13 @@ class MainViewController: NSViewController {
 
 extension MainViewController: DragAndDropViewDelegate {
     func setPDF(at url: URL?) {
-        tabView.tabViewItems.flatMap { $0.viewController as? GeneratedImageViewController }
-                            .forEach { $0.viewModel = PDFViewModel(PDF(url: url)) }
+        tabView
+            .tabViewItems
+            .compactMap {
+                $0.viewController as? GeneratedImageViewController
+            }
+            .forEach {
+                $0.viewModel = PDFViewModel(PDF(url: url))
+            }
     }
 }

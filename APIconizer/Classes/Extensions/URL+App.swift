@@ -10,6 +10,6 @@ import Foundation
 
 extension URL {
     static func tempDir() -> URL {
-        return URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(UUID().uuidString)
+        URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(UUID().uuidString)
     }
 }

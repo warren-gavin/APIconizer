@@ -10,14 +10,13 @@ import Foundation
 
 extension Array where Element == GeneratedImageViewModel {
     func generateContentJSON() -> [String: Any] {
-        let images = map { $0.info.contentInfo }
-        
-        let info: [String: Any] = [
-            .version: Int.version,
-            .author:  Bundle.appName
+        [
+            .images: map { $0.info.contentInfo },
+            .info: [
+                String.version: Int.version,
+                String.author:  Bundle.appName
+            ]
         ]
-        
-        return [.images: images, .info: info]
     }
 }
 

@@ -41,7 +41,7 @@ class GeneratedImageViewController: NSViewController, GeneratedImageViewControll
     @IBAction func saveAppIconSet(_ sender: NSButton) {
         let savePanel = NSSavePanel()
         
-        savePanel.allowedFileTypes     = [AppIconSet.fileExtension]
+        savePanel.allowedContentTypes  = [.appIconSet]
         savePanel.canCreateDirectories = true
         savePanel.allowsOtherFileTypes = true
         savePanel.nameFieldStringValue = AppIconSet.defaultFilename
@@ -100,9 +100,6 @@ extension GeneratedImageViewModel {
                                            info: $0)
         }
 
-        let i = images[0].info
-        print(i.size)
-        
         return images
     }
 }

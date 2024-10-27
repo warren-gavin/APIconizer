@@ -21,7 +21,7 @@ struct PDF {
     }
     
     var filename: String {
-        return url.deletingPathExtension().lastPathComponent
+        url.deletingPathExtension().lastPathComponent
     }
     
     init?(url: URL?) {

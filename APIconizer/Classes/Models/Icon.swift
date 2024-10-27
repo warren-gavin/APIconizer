@@ -16,7 +16,7 @@ struct Icon {
 
 extension Icon {
     func generatedImageInfo(withRootFilename basename: String) -> [GeneratedImageInfo] {
-        return resolutions.map {
+        resolutions.map {
             GeneratedImageInfo(size: pointSize,
                                device: type,
                                filename: filename(withRoot: basename, atScale: $0.scale),
@@ -28,6 +28,6 @@ extension Icon {
 
 private extension Icon {
     func filename(withRoot basename: String, atScale scale: Int) -> String {
-        return "\(basename)-\(pointSize.prettyPrint(decimalSeparator: "-"))@\(scale)x.png"
+        "\(basename)-\(pointSize.prettyPrint(decimalSeparator: "-"))@\(scale)x.png"
     }
 }

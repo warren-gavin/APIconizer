@@ -10,8 +10,8 @@ import Cocoa
 
 extension NSPDFImageRep {
     func image(forSize size: NSSize, flipped: Bool = false) -> NSImage {
-        return NSImage(size: size, flipped: flipped) { [unowned self] rect in
-            return self.draw(in: rect)
+        NSImage(size: size, flipped: flipped) { [unowned self] rect in
+            self.draw(in: rect)
         }
     }
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Resolution: Int, EnumCollection {
+enum Resolution: Int, CaseIterable {
     case nonRetina = 1
     case retina    = 2
     case retinaHD  = 3
@@ -16,6 +16,6 @@ enum Resolution: Int, EnumCollection {
 
 extension Resolution {
     var scale: Int {
-        return rawValue
+        rawValue
     }
 }

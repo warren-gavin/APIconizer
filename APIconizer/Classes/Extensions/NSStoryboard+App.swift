@@ -9,11 +9,9 @@
 import Cocoa
 
 extension NSStoryboard {
-    @available(OSX, deprecated: 10.13)
     static let main = NSStoryboard(name: .main, bundle: nil)
 }
 
 extension NSStoryboard.Name {
-    @available(OSX, deprecated: 10.13)
     static let main = NSStoryboard.Name(rawValue: "Main")
 }

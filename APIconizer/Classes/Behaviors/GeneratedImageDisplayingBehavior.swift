@@ -65,7 +65,7 @@ private extension GeneratedImageDisplayingBehavior {
 // MARK: - NSCollectionViewDataSource
 extension GeneratedImageDisplayingBehavior: NSCollectionViewDataSource {
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.count
+        viewModel.count
     }
     
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
@@ -82,10 +82,11 @@ extension GeneratedImageDisplayingBehavior: NSCollectionViewDataSource {
 // Needed to create the set of generated image info
 extension GeneratedImageInfo: Hashable {
     static func ==(lhs: GeneratedImageInfo, rhs: GeneratedImageInfo) -> Bool {
-        return lhs.hashValue == rhs.hashValue
+        lhs.hashValue == rhs.hashValue
     }
     
-    var hashValue: Int {
-        return "\(description).\(size)".hashValue
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(description)
+        hasher.combine(size)
     }
 }

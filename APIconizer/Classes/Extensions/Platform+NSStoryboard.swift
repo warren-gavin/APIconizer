@@ -10,6 +10,6 @@ import Cocoa
 
 extension Platform {
     var sceneIdentifier: NSStoryboard.SceneIdentifier {
-        return NSStoryboard.SceneIdentifier(rawValue: rawValue)
+        NSStoryboard.SceneIdentifier(rawValue: rawValue)
     }
 }

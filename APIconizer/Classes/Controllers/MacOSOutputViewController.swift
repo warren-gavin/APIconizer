@@ -10,6 +10,6 @@ import Cocoa
 
 class MacOSOutputViewController: GeneratedImageViewController {
     override var iconSet: AppIconSet {
-        return .mac
+        .mac
     }
 }

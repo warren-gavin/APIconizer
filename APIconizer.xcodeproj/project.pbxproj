@@ -22,7 +22,6 @@
 		B06255D41F351F16005F35C9 /* UniquelyIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06255D31F351F16005F35C9 /* UniquelyIdentifiable.swift */; };
 		B06255D61F351F36005F35C9 /* UserInterfaceItemIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06255D51F351F36005F35C9 /* UserInterfaceItemIdentifiable.swift */; };
 		B06255D81F352376005F35C9 /* NSCollectionView+Nibbable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06255D71F352376005F35C9 /* NSCollectionView+Nibbable.swift */; };
-		B08A63851F40E0E300254639 /* EnumCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08A63841F40E0E300254639 /* EnumCollection.swift */; };
 		B0A92FB41F334CEB00CE83CD /* GeneratedImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A92FB21F334CBB00CE83CD /* GeneratedImageViewController.swift */; };
 		B0A92FB51F334CEB00CE83CD /* iOSOutputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A92FB31F334CBB00CE83CD /* iOSOutputViewController.swift */; };
 		B0A92FB61F334CEB00CE83CD /* MacOSOutputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A92FB01F334CBB00CE83CD /* MacOSOutputViewController.swift */; };
@@ -94,7 +93,6 @@
 		B06255D31F351F16005F35C9 /* UniquelyIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniquelyIdentifiable.swift; sourceTree = "<group>"; };
 		B06255D51F351F36005F35C9 /* UserInterfaceItemIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInterfaceItemIdentifiable.swift; sourceTree = "<group>"; };
 		B06255D71F352376005F35C9 /* NSCollectionView+Nibbable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSCollectionView+Nibbable.swift"; sourceTree = "<group>"; };
-		B08A63841F40E0E300254639 /* EnumCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumCollection.swift; sourceTree = "<group>"; };
 		B0A92FA01F334C8C00CE83CD /* AppIconSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconSet.swift; sourceTree = "<group>"; };
 		B0A92FA11F334C8C00CE83CD /* Resolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resolution.swift; sourceTree = "<group>"; };
 		B0A92FA21F334C8C00CE83CD /* Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
@@ -308,7 +306,6 @@
 				B06255D71F352376005F35C9 /* NSCollectionView+Nibbable.swift */,
 				B06255D31F351F16005F35C9 /* UniquelyIdentifiable.swift */,
 				B06255D51F351F36005F35C9 /* UserInterfaceItemIdentifiable.swift */,
-				B08A63841F40E0E300254639 /* EnumCollection.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -448,7 +445,6 @@
 				B0CA0D6C1F406DAD00FC3891 /* DragAndDropView.swift in Sources */,
 				B0CA0D6E1F407D8100FC3891 /* String+PDF.swift in Sources */,
 				B0A92FBB1F334CEE00CE83CD /* Dictionary+App.swift in Sources */,
-				B08A63851F40E0E300254639 /* EnumCollection.swift in Sources */,
 				B0B3E2C41F3F40C300F93DF7 /* GeneratedImageDisplayViewModel.swift in Sources */,
 				B0A92FB41F334CEB00CE83CD /* GeneratedImageViewController.swift in Sources */,
 				B0A92FC61F334CF100CE83CD /* Resolution.swift in Sources */,
@@ -645,6 +641,7 @@
 				DEVELOPMENT_TEAM = 8PKALBM6Q4;
 				INFOPLIST_FILE = APIconizer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.apokrupto.APIconizer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -660,6 +657,7 @@
 				DEVELOPMENT_TEAM = 8PKALBM6Q4;
 				INFOPLIST_FILE = APIconizer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.apokrupto.APIconizer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

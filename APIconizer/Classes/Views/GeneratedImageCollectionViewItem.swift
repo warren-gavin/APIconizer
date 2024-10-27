@@ -41,7 +41,7 @@ class GeneratedImageCollectionViewItem: NSCollectionViewItem {
     }
     
     func size(for resolution: Resolution) -> NSSize {
-        return imageViews[resolution]?.bounds.size ?? .zero
+        imageViews[resolution]?.bounds.size ?? .zero
     }
     
     func set(withViewModel viewModel: GeneratedImageDisplayViewModel) {

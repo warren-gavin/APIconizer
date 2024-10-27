@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UniformTypeIdentifiers
 
 struct AppIconSet: OptionSet {
     let rawValue: Int
@@ -60,6 +61,14 @@ extension AppIconSet {
     static let defaultFilename  = "AppIcon"
     static let fileExtension    = "appiconset"
     static let contentsFilename = "Contents.json"
+}
+
+extension UTType {
+    static let appIconSet = UTType(
+        tag: AppIconSet.fileExtension,
+        tagClass: .filenameExtension,
+        conformingTo: nil
+    )!
 }
 
 // MARK: - Available icon sets

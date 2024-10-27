@@ -18,6 +18,6 @@ extension Dictionary {
     }
 
     var json: Data? {
-        return try? JSONSerialization.data(withJSONObject: self, options: .prettyPrinted)
+        try? JSONSerialization.data(withJSONObject: self, options: .prettyPrinted)
     }
 }

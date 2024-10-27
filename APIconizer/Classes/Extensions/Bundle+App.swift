@@ -10,6 +10,6 @@ import Foundation
 
 extension Bundle {
     static var appName: String {
-        return Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as! String
+        Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as! String
     }
 }

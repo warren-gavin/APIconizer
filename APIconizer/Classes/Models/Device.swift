@@ -31,16 +31,16 @@ extension Device {
         case .appStore(let market):
             return market.idiom
             
-        case .iphone(_):
+        case .iphone:
             return "iphone"
             
-        case .ipad(_):
+        case .ipad:
             return "ipad"
             
         case .mac:
             return "mac"
             
-        case .watch(_):
+        case .watch:
             return "watch"
         }
     }
